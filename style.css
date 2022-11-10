@@ -1,0 +1,115 @@
+:root {
+    --color-1 : red;
+    --color-2 : yellow;
+}
+* {
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background: rgb(181, 181, 181);
+    height: 100vh;
+    overflow: hidden;
+}
+.side-menu {
+    background-color: rgb(52, 52, 52);
+    width: 10%;
+    height: 100vh;
+    float: left;
+}
+.side-menu > ul > li {
+    list-style: none;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+.side-menu > ul > li:hover {
+    background-color: rgb(224, 224, 224);
+}
+.side-menu > ul > li:hover a {
+    color: rgb(52, 52, 52);
+}
+.side-menu ul > li > a {
+    text-decoration: none;
+    color:rgb(224, 224, 224);
+    font-size: 20px;;
+}
+.container {
+    width: 90%;
+    height: 100vh;
+    background-color: var(--color-1);
+    float: left;
+    overflow: hidden;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    /* For testing Only */
+    text-align: center;
+    font-size: 50px;
+}
+#homeCnt {
+    background-color: var(--color-1);
+}
+#aboutCnt {
+    background-color: var(--color-1);
+}
+#projectsCnt {
+    background-color: var(--color-1);
+}
+#contactCnt {
+    background-color: var(--color-1);
+}
+@keyframes slideOut {
+    from{width: 90%;}
+    to{width: 0;}
+}
+@keyframes slideIn {
+    from{width:0;}
+    to{width:90%;}
+}
+.prog-container {
+    width: 200px;
+    height: 15px;
+    background-color: black;
+    border-radius: 25px;
+    margin : 20px;
+}
+.prog-bar {
+    width: 75%;
+    height:100%;
+    border-radius: 25px;
+    background-color: var(--color-2);
+    text-align: center;
+}
+.prog-container:nth-child(2) > .prog-bar {
+    width: 35%;
+}
+.prog-container:nth-child(3) > .prog-bar {
+    width: 95%;
+}
+.prog-container:nth-child(4) > .prog-bar {
+    width: 15%;
+}
+.clr {
+    position: relative;
+    left: 50%;
+    margin-left: -15px;;
+    margin-top: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid black;
+    cursor: pointer;
+}
+#red {
+    background-color: red;
+}
+#green {
+    background-color: green;
+}
+#blue {
+    background-color: blue;
+}
+#yellow {
+    background-color: yellow;
+}
