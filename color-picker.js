@@ -1,6 +1,7 @@
-import { pageList, buttonList } from './elements.js';
+import { pageList, buttonList, menu, domElements } from './elements.js';
 
 window.onload = () => {
+  // ~~~~~~~~~~ Colors ~~~~~~~~~~
   const red = document.getElementById('red');
   const green = document.getElementById('green');
   const blue = document.getElementById('blue');
@@ -9,10 +10,6 @@ window.onload = () => {
   const colors = [red, green, blue, yellow];
 
   function colorPicker(e) {
-    // for(let i = 0; i < pageList.length; i++) {
-    //     pageList[i].style.background = `${e.target.id}`
-    // }
-
     document.documentElement.style.setProperty('--color-1', e.target.id);
 
     for (let i = 0; i < colors.length; i++) {
@@ -33,14 +30,55 @@ window.onload = () => {
 
   const mode = {
     container: {
-      dark: 'rgb(42, 42, 42)',
-      light: 'rgb(228, 228, 228)',
+      dark: 'var(--pages-dark-mode)',
+      light: 'var(--pages-light-mode)',
     },
-    sideMenu: {},
+    sideMenu: {
+      background: {
+        dark: 'var(--side-menu-dark-mode)',
+        light: 'var(--side-menu-light-mode)',
+      },
+      text: {
+        dark: 'var(--nav-text-dark-mode)',
+        light: 'var(--nav-text-light-mode)',
+      },
+    },
   };
 
-  const temeMode = document.getElementById('theme');
+  const themeMode = document.getElementById('theme');
   const toggleBt = document.getElementById('toggle');
 
-  function toggleMode() {}
+  let modeValue = 0;
+
+  function toggleMode() {
+    if (modeValue == 0) {
+      for (let i = 0; i < pageList.length; i++) {
+        pageList[i].style.background = mode.container.dark;
+        pageList[i].style.color = mode.sideMenu.text.dark;
+      }
+      menu.style.background = mode.sideMenu.background.dark;
+      menu.style.color = mode.sideMenu.text.dark;
+
+      for (let i = 0; i < domElements.a.length; i++) {
+        domElements.a[i].style.color = mode.sideMenu.text.dark;
+      }
+
+      modeValue = 1;
+    } else {
+      for (let i = 0; i < pageList.length; i++) {
+        pageList[i].style.background = mode.container.light;
+        pageList[i].style.color = mode.sideMenu.text.light;
+      }
+      menu.style.background = mode.sideMenu.background.light;
+      menu.style.color = mode.sideMenu.text.light;
+
+      for (let i = 0; i < domElements.a.length; i++) {
+        domElements.a[i].style.color = mode.sideMenu.text.light;
+      }
+
+      modeValue = 0;
+    }
+  }
+
+  themeMode.addEventListener('click', toggleMode);
 };

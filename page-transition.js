@@ -1,6 +1,6 @@
 import { pageList, buttonList } from './elements.js';
 
-const pageTransition = (pageList, buttonList) => {
+const pageTransition = (...args) => {
   console.log(pageList[1]);
 
   for (let k = 0; k <= 5; k++) {}
