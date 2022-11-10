@@ -1,115 +1,159 @@
 :root {
-    --color-1 : red;
-    --color-2 : yellow;
+  /* Container */
+  --pages-dark-mode: rgb(42, 42, 42);
+  --pages-light-mode: rgb(228, 228, 228);
+  /* Side Menu */
+  --side-menu-dark-mode: rgb(70, 70, 70);
+  --side-menu-light-mode: rgb(204, 202, 202);
+  --nav-element-light-mode: rgb(42, 42, 42);
+  --color-1: red;
+  --color-2: yellow;
 }
 * {
-    padding:0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 body {
-    background: rgb(181, 181, 181);
-    height: 100vh;
-    overflow: hidden;
+  background: var(--pages-light-mode);
+  height: 100vh;
+  overflow: hidden;
 }
 .side-menu {
-    background-color: rgb(52, 52, 52);
-    width: 10%;
-    height: 100vh;
-    float: left;
+  background-color: var(--side-menu-light-mode);
+  width: 10%;
+  height: 100vh;
+  float: left;
+  text-align: center;
 }
 .side-menu > ul > li {
-    list-style: none;
-    padding: 20px;
-    text-align: center;
-    cursor: pointer;
+  list-style: none;
+  padding: 20px;
+  cursor: pointer;
 }
 .side-menu > ul > li:hover {
-    background-color: rgb(224, 224, 224);
+  background-color: rgb(224, 224, 224);
 }
 .side-menu > ul > li:hover a {
-    color: rgb(52, 52, 52);
+  color: rgb(52, 52, 52);
 }
 .side-menu ul > li > a {
-    text-decoration: none;
-    color:rgb(224, 224, 224);
-    font-size: 20px;;
+  text-decoration: none;
+  color: rgb(224, 224, 224);
+  font-size: 20px;
 }
 .container {
-    width: 90%;
-    height: 100vh;
-    background-color: var(--color-1);
-    float: left;
-    overflow: hidden;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    /* For testing Only */
-    text-align: center;
-    font-size: 50px;
-}
-#homeCnt {
-    background-color: var(--color-1);
-}
-#aboutCnt {
-    background-color: var(--color-1);
-}
-#projectsCnt {
-    background-color: var(--color-1);
-}
-#contactCnt {
-    background-color: var(--color-1);
+  width: 90%;
+  height: 100vh;
+  background-color: var(--color-1);
+  float: left;
+  overflow: hidden;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  /* For testing Only */
+  text-align: center;
+  font-size: 50px;
+  background-color: var(--pages-light-mode);
 }
 @keyframes slideOut {
-    from{width: 90%;}
-    to{width: 0;}
+  from {
+    width: 90%;
+  }
+  to {
+    width: 0;
+  }
 }
 @keyframes slideIn {
-    from{width:0;}
-    to{width:90%;}
+  from {
+    width: 0;
+  }
+  to {
+    width: 90%;
+  }
 }
 .prog-container {
-    width: 200px;
-    height: 15px;
-    background-color: black;
-    border-radius: 25px;
-    margin : 20px;
+  width: 200px;
+  height: 15px;
+  background-color: black;
+  border-radius: 25px;
+  margin: 20px;
 }
 .prog-bar {
-    width: 75%;
-    height:100%;
-    border-radius: 25px;
-    background-color: var(--color-2);
-    text-align: center;
+  width: 75%;
+  height: 100%;
+  border-radius: 25px;
+  background-color: var(--color-2);
+  text-align: center;
 }
 .prog-container:nth-child(2) > .prog-bar {
-    width: 35%;
+  width: 35%;
 }
 .prog-container:nth-child(3) > .prog-bar {
-    width: 95%;
+  width: 95%;
 }
 .prog-container:nth-child(4) > .prog-bar {
-    width: 15%;
+  width: 15%;
 }
 .clr {
-    position: relative;
-    left: 50%;
-    margin-left: -15px;;
-    margin-top: 20px;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 1px solid black;
-    cursor: pointer;
+  position: relative;
+  left: 50%;
+  margin-left: -15px;
+  margin-top: 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid black;
+  cursor: pointer;
 }
 #red {
-    background-color: red;
+  background-color: red;
 }
 #green {
-    background-color: green;
+  background-color: green;
 }
 #blue {
-    background-color: blue;
+  background-color: blue;
 }
 #yellow {
-    background-color: yellow;
+  background-color: yellow;
+}
+
+/* ~~~~~~~~~~~ Dark / Light Mode ~~~~~~~~~~ */
+.mode-toggle {
+  width: 60px;
+  height: 30px;
+  border-radius: 25px;
+  display: inline-block;
+  background-color: rgb(255, 255, 255);
+  margin: 20px 0px;
+  cursor: pointer;
+}
+.toggle {
+  position: relative;
+  top: -1px;
+  left: -1px;
+  width: 32px;
+  height: 32px;
+  border-radius: 25px;
+  border: 1px solid black;
+  background-color: aliceblue;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes toDark {
+  from {
+    left: -1px;
+  }
+  to {
+    left: 61px;
+  }
+}
+@keyframes toLight {
+  from {
+    left: 61px;
+  }
+  to {
+    left: -1px;
+  }
 }
