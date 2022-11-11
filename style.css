@@ -7,7 +7,7 @@
   --side-menu-light-mode: rgb(204, 202, 202);
   --nav-text-light-mode: rgb(42, 42, 42);
   --nav-text-dark-mode: rgb(228, 228, 228);
-  --color-1: red;
+  --color-1: #ed3824;
   --color-2: yellow;
 }
 * {
@@ -33,14 +33,14 @@ body {
   cursor: pointer;
 }
 .side-menu > ul > li:hover {
-  background-color: rgb(224, 224, 224);
+  background-color: var(--color-1);
 }
 .side-menu > ul > li:hover a {
-  color: rgb(52, 52, 52);
+  color: white;
 }
 .side-menu ul > li > a {
   text-decoration: none;
-  color: rgb(224, 224, 224);
+  color: var(--nav-text-light-mode);
   font-size: 20px;
 }
 .container {
@@ -83,7 +83,7 @@ body {
   width: 75%;
   height: 100%;
   border-radius: 25px;
-  background-color: var(--color-2);
+  background-color: var(--color-1);
   text-align: center;
 }
 .prog-container:nth-child(2) > .prog-bar {
@@ -107,16 +107,16 @@ body {
   cursor: pointer;
 }
 #red {
-  background-color: red;
+  background-color: #4322f0;
 }
 #green {
-  background-color: green;
+  background-color: #9a25f7;
 }
 #blue {
-  background-color: blue;
+  background-color: #d72de0;
 }
 #yellow {
-  background-color: yellow;
+  background-color: #ed3824;
 }
 
 /* ~~~~~~~~~~~ Dark / Light Mode ~~~~~~~~~~ */

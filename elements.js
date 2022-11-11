@@ -22,10 +22,54 @@ const lists = {
 };
 
 const a = document.getElementsByTagName('a');
+const p = document.getElementsByTagName('p');
+const h1 = document.getElementsByTagName('h1');
+const h2 = document.getElementsByTagName('h2');
+const h3 = document.getElementsByTagName('h3');
+const h4 = document.getElementsByTagName('h4');
+const h5 = document.getElementsByTagName('h5');
+const div = document.getElementsByTagName('div');
+const span = document.getElementsByTagName('span');
+const section = document.getElementsByTagName('section');
+const footer = document.getElementsByTagName('footer');
+const header = document.getElementsByTagName('header');
+const button = document.getElementsByTagName('button');
+const input = document.getElementsByTagName('input');
+const label = document.getElementsByTagName('label');
+const form = document.getElementsByTagName('form');
 
 const domElements = {
   lists: lists,
   a: a,
+  p: p,
+  h1: h1,
+  h2: h2,
+  h3: h3,
+  h4: h4,
+  h5: h5,
+  div: div,
+  span: span,
+  section: section,
+  footer: footer,
+  header: header,
+  button: button,
+  input: input,
+  label: label,
+  form: form,
 };
 
-export { pageList, buttonList, menu, domElements };
+// Class Picker
+
+const classStyle = (className, attr, value) => {
+  let element = document.getElementsByClassName(className);
+
+  let elements = [...element];
+
+  elements.forEach(function (i) {
+    return i.setAttribute('style', `${attr}:${value}`);
+  });
+
+  return classStyle;
+};
+
+export { pageList, buttonList, menu, domElements, classStyle };

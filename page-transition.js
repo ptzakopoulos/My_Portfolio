@@ -1,13 +1,10 @@
 import { pageList, buttonList } from './elements.js';
 
 const pageTransition = (...args) => {
-  console.log(pageList[1]);
-
   for (let k = 0; k <= 5; k++) {}
 
   for (let k = 0; k < buttonList.length; k++) {
     buttonList[k].addEventListener('click', openTab);
-    console.log('success');
   }
   let element = {
     old: document.getElementById('homeCnt'),
@@ -16,8 +13,6 @@ const pageTransition = (...args) => {
   let id;
 
   function openTab() {
-    console.log('bike');
-
     id = `${this.textContent.toLowerCase()}Cnt`; //Analoga me to koumpi pou patietai kai to keimeno pou exei, kataskevasei to ID pou tha dialextei argotera
 
     if (id.indexOf('home') == 0 && element.new == undefined) {

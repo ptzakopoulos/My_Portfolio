@@ -1,4 +1,12 @@
-import { pageList, buttonList, menu, domElements } from './elements.js';
+'@ts-check';
+'use strict';
+import {
+  pageList,
+  buttonList,
+  menu,
+  domElements,
+  classStyle,
+} from './elements.js';
 
 window.onload = () => {
   // ~~~~~~~~~~ Colors ~~~~~~~~~~
@@ -20,6 +28,10 @@ window.onload = () => {
     this.style.width = '40px';
     this.style.height = '40px';
     this.style.marginLeft = '-20px';
+
+    let pickedColor = window.getComputedStyle(this).backgroundColor;
+
+    document.documentElement.style.setProperty('--color-1', pickedColor);
   }
 
   colors.forEach(function (e) {
@@ -52,6 +64,7 @@ window.onload = () => {
 
   function toggleMode() {
     if (modeValue == 0) {
+      // ~~~~~~~~~~ Elements Color Change ~~~~~~~~~~
       for (let i = 0; i < pageList.length; i++) {
         pageList[i].style.background = mode.container.dark;
         pageList[i].style.color = mode.sideMenu.text.dark;
@@ -62,9 +75,10 @@ window.onload = () => {
       for (let i = 0; i < domElements.a.length; i++) {
         domElements.a[i].style.color = mode.sideMenu.text.dark;
       }
-
+      // ~~~~~~~~~~ Button Animation Handler ~~~~~~~~~~
       modeValue = 1;
     } else {
+      // ~~~~~~~~~~ Elements Color Change ~~~~~~~~~~
       for (let i = 0; i < pageList.length; i++) {
         pageList[i].style.background = mode.container.light;
         pageList[i].style.color = mode.sideMenu.text.light;
@@ -75,7 +89,7 @@ window.onload = () => {
       for (let i = 0; i < domElements.a.length; i++) {
         domElements.a[i].style.color = mode.sideMenu.text.light;
       }
-
+      // ~~~~~~~~~~ Button Animation Handler ~~~~~~~~~~
       modeValue = 0;
     }
   }
