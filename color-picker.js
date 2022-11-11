@@ -1,4 +1,4 @@
-'@ts-check';
+//ts-check
 'use strict';
 import {
   pageList,
@@ -6,6 +6,7 @@ import {
   menu,
   domElements,
   classStyle,
+  rootStyle,
 } from './elements.js';
 
 window.onload = () => {
@@ -17,9 +18,7 @@ window.onload = () => {
 
   const colors = [red, green, blue, yellow];
 
-  function colorPicker(e) {
-    document.documentElement.style.setProperty('--color-1', e.target.id);
-
+  function colorPicker() {
     for (let i = 0; i < colors.length; i++) {
       colors[i].style.width = '30px';
       colors[i].style.height = '30px';
@@ -31,7 +30,7 @@ window.onload = () => {
 
     let pickedColor = window.getComputedStyle(this).backgroundColor;
 
-    document.documentElement.style.setProperty('--color-1', pickedColor);
+    rootStyle('--color-1', pickedColor);
   }
 
   colors.forEach(function (e) {
@@ -65,30 +64,40 @@ window.onload = () => {
   function toggleMode() {
     if (modeValue == 0) {
       // ~~~~~~~~~~ Elements Color Change ~~~~~~~~~~
-      for (let i = 0; i < pageList.length; i++) {
-        pageList[i].style.background = mode.container.dark;
-        pageList[i].style.color = mode.sideMenu.text.dark;
-      }
-      menu.style.background = mode.sideMenu.background.dark;
-      menu.style.color = mode.sideMenu.text.dark;
 
-      for (let i = 0; i < domElements.a.length; i++) {
-        domElements.a[i].style.color = mode.sideMenu.text.dark;
-      }
+      classStyle('.container', 'background', mode.container.dark);
+      classStyle('.container', 'color', mode.sideMenu.text.dark);
+      classStyle('.side-menu', 'background', mode.sideMenu.background.dark);
+      classStyle('.side-menu *', 'color', mode.sideMenu.text.dark);
+
+      // for (let i = 0; i < pageList.length; i++) {
+      //   pageList[i].style.background = mode.container.dark;
+      //   pageList[i].style.color = mode.sideMenu.text.dark;
+      // }
+      // menu.style.background = mode.sideMenu.background.dark;
+      // menu.style.color = mode.sideMenu.text.dark;
+
+      // for (let i = 0; i < domElements.a.length; i++) {
+      //   domElements.a[i].style.color = mode.sideMenu.text.dark;
+      // }
       // ~~~~~~~~~~ Button Animation Handler ~~~~~~~~~~
       modeValue = 1;
     } else {
       // ~~~~~~~~~~ Elements Color Change ~~~~~~~~~~
-      for (let i = 0; i < pageList.length; i++) {
-        pageList[i].style.background = mode.container.light;
-        pageList[i].style.color = mode.sideMenu.text.light;
-      }
-      menu.style.background = mode.sideMenu.background.light;
-      menu.style.color = mode.sideMenu.text.light;
+      classStyle('.container', 'background', mode.container.light);
+      classStyle('.container', 'color', mode.sideMenu.text.light);
+      classStyle('.side-menu', 'background', mode.sideMenu.background.light);
+      classStyle('.side-menu *', 'color', mode.sideMenu.text.light);
+      // for (let i = 0; i < pageList.length; i++) {
+      //   pageList[i].style.background = mode.container.light;
+      //   pageList[i].style.color = mode.sideMenu.text.light;
+      // }
+      // menu.style.background = mode.sideMenu.background.light;
+      // menu.style.color = mode.sideMenu.text.light;
 
-      for (let i = 0; i < domElements.a.length; i++) {
-        domElements.a[i].style.color = mode.sideMenu.text.light;
-      }
+      // for (let i = 0; i < domElements.a.length; i++) {
+      //   domElements.a[i].style.color = mode.sideMenu.text.light;
+      // }
       // ~~~~~~~~~~ Button Animation Handler ~~~~~~~~~~
       modeValue = 0;
     }

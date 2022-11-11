@@ -16,7 +16,6 @@ const pageTransition = (...args) => {
     id = `${this.textContent.toLowerCase()}Cnt`; //Analoga me to koumpi pou patietai kai to keimeno pou exei, kataskevasei to ID pou tha dialextei argotera
 
     if (id.indexOf('home') == 0 && element.new == undefined) {
-      console.log('sks');
     } else {
       for (let i = 0; i < buttonList.length; i++) {
         buttonList[i].removeEventListener('click', openTab);

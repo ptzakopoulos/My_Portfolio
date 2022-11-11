@@ -61,15 +61,35 @@ const domElements = {
 // Class Picker
 
 const classStyle = (className, attr, value) => {
-  let element = document.getElementsByClassName(className);
+  // const stylesheet = document.styleSheets;
+  // const cssFiles = [...stylesheet];
+  // let boxParaRule;
 
-  let elements = [...element];
+  // cssFiles.forEach((files) => {
+  //   boxParaRule;
+  //   return (boxParaRule = [...files.cssRules].find(
+  //     (r) => r.selectorText === className
+  //   ));
+  // });
 
-  elements.forEach(function (i) {
-    return i.setAttribute('style', `${attr}:${value}`);
+  // boxParaRule.style.setProperty(attr, value);
+  // Einai Mono gia classes kai ID pou einai katagegrammena mesa sta CSS Files, optoe den einai ergonomiko
+
+  const element = document.querySelectorAll(className);
+
+  const elements = [...element];
+
+  elements.forEach((i) => {
+    return i.style.setProperty(attr, value);
   });
 
   return classStyle;
 };
 
-export { pageList, buttonList, menu, domElements, classStyle };
+//root style editing
+
+const rootStyle = (variable, value) => {
+  document.documentElement.style.setProperty(variable, value);
+};
+
+export { pageList, buttonList, menu, domElements, classStyle, rootStyle };
