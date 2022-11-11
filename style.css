@@ -7,8 +7,11 @@
   --side-menu-light-mode: rgb(204, 202, 202);
   --nav-text-light-mode: rgb(42, 42, 42);
   --nav-text-dark-mode: rgb(228, 228, 228);
-  --color-1: #ed3824;
-  --color-2: yellow;
+  /* Toggle Colors */
+  --toggle-body: var(--pages-light-mode);
+  --toggle-nav: var(--side-menu-light-mode);
+  --toggle-text: var(--nav-text-light-mode);
+  --picked-color: #ed3824;
 }
 * {
   padding: 0;
@@ -16,12 +19,17 @@
   box-sizing: border-box;
 }
 body {
-  background: var(--pages-light-mode);
+  background: var(--toggle-body);
   height: 100vh;
   overflow: hidden;
 }
 .side-menu {
-  background-color: var(--side-menu-light-mode);
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  /* ---- */
+  background-color: var(--toggle-nav);
+  color: var(--toggle-text);
   width: 10%;
   height: 100vh;
   float: left;
@@ -33,43 +41,56 @@ body {
   cursor: pointer;
 }
 .side-menu > ul > li:hover {
-  background-color: var(--color-1);
+  background-color: var(--picked-color);
 }
 .side-menu > ul > li:hover a {
   color: white;
 }
 .side-menu ul > li > a {
   text-decoration: none;
-  color: var(--nav-text-light-mode);
+  color: var(--toggle-text);
   font-size: 20px;
 }
+/* ~~~~~~~~~~ Container ~~~~~~~~~~ */
 .container {
+  position: absolute;
+  left: 10%;
+  z-index: 0;
+  /* ---- */
   width: 90%;
   height: 100vh;
-  background-color: var(--color-1);
+  background-color: var(--toggle-body);
+  color: var(--toggle-text);
   float: left;
   overflow: hidden;
   animation-duration: 1s;
   animation-fill-mode: forwards;
   /* For testing Only */
-  text-align: center;
+
   font-size: 50px;
-  background-color: var(--pages-light-mode);
+}
+.left,
+.right {
+  float: left;
+  margin-top: 20px;
+  width: 45vw;
+  height: 500px;
+  border: 1px solid black;
 }
 @keyframes slideOut {
   from {
-    width: 90%;
+    left: 10%;
   }
   to {
-    width: 0;
+    left: -90%;
   }
 }
 @keyframes slideIn {
   from {
-    width: 0;
+    left: 100%;
   }
   to {
-    width: 90%;
+    left: 10%;
   }
 }
 .prog-container {
@@ -83,7 +104,7 @@ body {
   width: 75%;
   height: 100%;
   border-radius: 25px;
-  background-color: var(--color-1);
+  background-color: var(--picked-color);
   text-align: center;
 }
 .prog-container:nth-child(2) > .prog-bar {

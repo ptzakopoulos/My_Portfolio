@@ -10,6 +10,25 @@ import {
 } from './elements.js';
 
 window.onload = () => {
+  // ~~~~~~~~~~ Root Colors ~~~~~~~~~~
+  const rootColors = {
+    light: {
+      body: 'var(--pages-light-mode)',
+      nav: 'var(--side-menu-light-mode)',
+      text: 'var(--nav-text-light-mode)',
+    },
+    dark: {
+      body: 'var(--pages-dark-mode)',
+      nav: 'var(--side-menu-dark-mode)',
+      text: 'var(--nav-text-dark-mode)',
+    },
+    toggle: {
+      body: '--toggle-body',
+      nav: '--toggle-nav',
+      text: '--toggle-text',
+    },
+  };
+
   // ~~~~~~~~~~ Colors ~~~~~~~~~~
   const red = document.getElementById('red');
   const green = document.getElementById('green');
@@ -30,7 +49,7 @@ window.onload = () => {
 
     let pickedColor = window.getComputedStyle(this).backgroundColor;
 
-    rootStyle('--color-1', pickedColor);
+    rootStyle('--picked-color', pickedColor);
   }
 
   colors.forEach(function (e) {
@@ -38,23 +57,6 @@ window.onload = () => {
   });
 
   // Dark / Light Mode toggle
-
-  const mode = {
-    container: {
-      dark: 'var(--pages-dark-mode)',
-      light: 'var(--pages-light-mode)',
-    },
-    sideMenu: {
-      background: {
-        dark: 'var(--side-menu-dark-mode)',
-        light: 'var(--side-menu-light-mode)',
-      },
-      text: {
-        dark: 'var(--nav-text-dark-mode)',
-        light: 'var(--nav-text-light-mode)',
-      },
-    },
-  };
 
   const themeMode = document.getElementById('theme');
   const toggleBt = document.getElementById('toggle');
@@ -65,10 +67,14 @@ window.onload = () => {
     if (modeValue == 0) {
       // ~~~~~~~~~~ Elements Color Change ~~~~~~~~~~
 
-      classStyle('.container', 'background', mode.container.dark);
-      classStyle('.container', 'color', mode.sideMenu.text.dark);
-      classStyle('.side-menu', 'background', mode.sideMenu.background.dark);
-      classStyle('.side-menu *', 'color', mode.sideMenu.text.dark);
+      rootStyle(rootColors.toggle.body, rootColors.dark.body);
+      rootStyle(rootColors.toggle.nav, rootColors.dark.nav);
+      rootStyle(rootColors.toggle.text, rootColors.dark.text);
+
+      // classStyle('.container', 'background', mode.container.dark);
+      // classStyle('.container', 'color', mode.sideMenu.text.dark);
+      // classStyle('.side-menu', 'background', mode.sideMenu.background.dark);
+      // classStyle('.side-menu *', 'color', mode.sideMenu.text.dark);
 
       // for (let i = 0; i < pageList.length; i++) {
       //   pageList[i].style.background = mode.container.dark;
@@ -84,10 +90,13 @@ window.onload = () => {
       modeValue = 1;
     } else {
       // ~~~~~~~~~~ Elements Color Change ~~~~~~~~~~
-      classStyle('.container', 'background', mode.container.light);
-      classStyle('.container', 'color', mode.sideMenu.text.light);
-      classStyle('.side-menu', 'background', mode.sideMenu.background.light);
-      classStyle('.side-menu *', 'color', mode.sideMenu.text.light);
+      rootStyle(rootColors.toggle.body, rootColors.light.body);
+      rootStyle(rootColors.toggle.nav, rootColors.light.nav);
+      rootStyle(rootColors.toggle.text, rootColors.light.text);
+      // classStyle('.container', 'background', mode.container.light);
+      // classStyle('.container', 'color', mode.sideMenu.text.light);
+      // classStyle('.side-menu', 'background', mode.sideMenu.background.light);
+      // classStyle('.side-menu *', 'color', mode.sideMenu.text.light);
       // for (let i = 0; i < pageList.length; i++) {
       //   pageList[i].style.background = mode.container.light;
       //   pageList[i].style.color = mode.sideMenu.text.light;
