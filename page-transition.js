@@ -2,9 +2,10 @@ import { pageList, buttonList, classStyle } from './elements.js';
 
 const pageTransition = (...args) => {
   // ~~~~~~~~~~ Event Listeners Handler ~~~~~~~~~~
-  for (let k = 0; k < buttonList.length; k++) {
-    buttonList[k].addEventListener('click', openTab);
-  }
+
+  buttonList.forEach((e) => {
+    return e.addEventListener('click', openTab);
+  });
 
   // ~~~~~~~~~~ New / Old Element Declaration ~~~~~~~~~~
   let element = {
@@ -25,19 +26,17 @@ const pageTransition = (...args) => {
   // ~~~~~~~~~~ Page Transition Handler ~~~~~~~~~~
   function openTab() {
     id = `${this.textContent.toLowerCase()}Cnt`; //Analoga me to koumpi pou patietai kai to keimeno pou exei, kataskevasei to ID pou tha dialextei argotera
+    element.new = document.getElementById(id);
 
-    if (id.indexOf('home') == 0 && element.new == undefined) {
+    if (element.new == element.old) {
+      console.error('sks');
     } else {
-      for (let i = 0; i < buttonList.length; i++) {
-        buttonList[i].removeEventListener('click', openTab);
-      }
+      buttonList.forEach((e) => {
+        return e.removeEventListener('click', openTab);
+      });
 
-      for (let i = 0; i < pageList.length; i++) {
-        // pageList[i].style.width = 0;
-        pageList[i].animationName = 'none';
-      }
+      classStyle('container', 'animationName', 'none');
 
-      element.new = document.getElementById(id);
       element.new.style.width = '90%';
       element.old.style.animationName = 'slideOut';
       element.new.style.animationName = 'slideIn';
@@ -46,12 +45,14 @@ const pageTransition = (...args) => {
         element.old.style.width = 0;
         element.old = element.new;
 
-        for (let i = 0; i < buttonList.length; i++) {
-          buttonList[i].addEventListener('click', openTab);
-        }
+        buttonList.forEach((e) => {
+          return e.addEventListener('click', openTab);
+        });
       }, 1000);
     }
+    //If end
   }
+  //openTab() end
 };
 
 window.onload = pageTransition(pageList, buttonList);
