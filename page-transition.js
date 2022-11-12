@@ -35,7 +35,7 @@ const pageTransition = (...args) => {
         return e.removeEventListener('click', openTab);
       });
 
-      classStyle('container', 'animationName', 'none');
+      classStyle('.container', 'animationName', 'none');
 
       element.new.style.width = '90%';
       element.old.style.animationName = 'slideOut';
