@@ -13,8 +13,8 @@
   --toggle-text: var(--nav-text-light-mode);
   --picked-color: #ed3824;
   /* Font-sizes */
-  --heading-font-size: 3vw;
-  --content-font-size: 2vw;
+  --heading-font-size: 3vw; /* Needs to Change */
+  --content-font-size: 2vw; /* Needs to Change */
   /* Buttom */
   --button-font-color: rgb(228, 228, 228);
 }
@@ -136,7 +136,6 @@ body {
   height: 100vh;
   background-color: var(--toggle-body);
   color: var(--toggle-text);
-  float: left;
   overflow: auto;
   animation-duration: 1s;
   animation-fill-mode: forwards;
@@ -150,9 +149,6 @@ body {
 ::-webkit-scrollbar-thumb {
   background: var(--picked-color);
   border-radius: 25px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background-blend-mode: luminosity 1;
 }
 /* Content Styling */
 .left,
@@ -178,7 +174,7 @@ body {
   padding: 15px;
   background: var(--picked-color);
   display: inline;
-  font-size: 1.5vw;
+  font-size: 1.5vw; /* Needs to Change */
   border-radius: 50px;
   border: 2px solid var(--picked-color);
   cursor: pointer;
