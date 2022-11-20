@@ -1,3 +1,6 @@
+// @ts-check
+'use strict';
+
 import { pageList, buttonList, classStyle } from './elements.js';
 
 const pageTransition = (...args) => {
@@ -17,7 +20,7 @@ const pageTransition = (...args) => {
 
   // ~~~~~~~~~~ Setting Containers' width to 0 ~~~~~~~~~~
   pageList.forEach((e) => {
-    return (e.style.width = 0);
+    return (e.style.width = '0');
   });
 
   // ~~~~~~~~~~ Setting Home's Width to 90% ~~~~~~~~~~
@@ -43,7 +46,7 @@ const pageTransition = (...args) => {
       element.new.style.animationName = 'slideIn';
 
       setTimeout(function () {
-        element.old.style.width = 0;
+        element.old.style.width = '0';
         element.old = element.new;
         classStyle(`#${id}`, 'overflow', 'auto');
 
@@ -57,4 +60,4 @@ const pageTransition = (...args) => {
   //openTab() end
 };
 
-window.onload = pageTransition(pageList, buttonList);
+pageTransition();

@@ -1,3 +1,6 @@
+// @ts-check
+'use strict';
+
 const home = document.getElementById('homeCnt');
 const about = document.getElementById('aboutCnt');
 const prj = document.getElementById('projectsCnt');

@@ -1,5 +1,6 @@
 // @ts-check
 'use strict';
+
 import {
   pageList,
   buttonList,
