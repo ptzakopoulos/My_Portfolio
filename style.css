@@ -4,7 +4,7 @@
   --pages-light-mode: rgb(228, 228, 228);
   /* Side Menu */
   --side-menu-dark-mode: rgb(17, 17, 17);
-  --side-menu-light-mode: rgb(204, 202, 202);
+  --side-menu-light-mode: rgb(176, 176, 176);
   --nav-text-light-mode: rgb(42, 42, 42);
   --nav-text-dark-mode: rgb(228, 228, 228);
   /* Toggle Colors */
@@ -12,6 +12,11 @@
   --toggle-nav: var(--side-menu-light-mode);
   --toggle-text: var(--nav-text-light-mode);
   --picked-color: #ed3824;
+  /* Font-sizes */
+  --heading-font-size: 3vw;
+  --content-font-size: 2vw;
+  /* Buttom */
+  --button-font-color: rgb(228, 228, 228);
 }
 * {
   padding: 0;
@@ -21,7 +26,12 @@
 body {
   background: var(--toggle-body);
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
+}
+/* ~~~~~~~~~~ Side Menu ~~~~~~~~~~ */
+/* ~~~~~~~~~~ Logo ~~~~~~~~~~ */
+.logo {
+  margin: 30px 0px;
 }
 .side-menu {
   position: absolute;
@@ -49,76 +59,7 @@ body {
 .side-menu ul > li > a {
   text-decoration: none;
   color: var(--toggle-text);
-  font-size: 20px;
-}
-/* ~~~~~~~~~~ Container ~~~~~~~~~~ */
-.container {
-  position: absolute;
-  left: 10%;
-  z-index: 0;
-  /* ---- */
-  width: 90%;
-  height: 100vh;
-  background-color: var(--toggle-body);
-  color: var(--toggle-text);
-  float: left;
-  overflow: hidden;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  /* For testing Only */
-
-  font-size: 50px;
-}
-.left,
-.right {
-  float: left;
-  margin-top: 20px;
-  width: 45vw;
-  height: 500px;
-  border: 1px solid black;
-}
-@keyframes slideOut {
-  from {
-    left: 10%;
-  }
-  to {
-    left: -90%;
-  }
-}
-@keyframes slideIn {
-  from {
-    left: 100%;
-  }
-  to {
-    left: 10%;
-  }
-}
-.prog-container {
-  width: 200px;
-  height: 15px;
-  background-color: black;
-  border-radius: 25px;
-  margin: 20px;
-}
-.prog-bar {
-  width: 75%;
-  height: 100%;
-  border-radius: 25px;
-  background-color: var(--picked-color);
-  text-align: center;
-}
-.prog-container:nth-child(2) > .prog-bar {
-  width: 35%;
-}
-.prog-container:nth-child(3) > .prog-bar {
-  width: 95%;
-}
-.prog-container:nth-child(4) > .prog-bar {
-  width: 15%;
-}
-/* ~~~~~~~~~~ Logo ~~~~~~~~~~ */
-.logo {
-  margin: 30px 0px;
+  font-size: 1.5vw;
 }
 /* ~~~~~~~~~~ Color Change buttons ~~~~~~~~~~ */
 .clr {
@@ -151,7 +92,7 @@ body {
   height: 30px;
   border-radius: 25px;
   display: inline-block;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--toggle-body);
   margin: 20px 0px;
   cursor: pointer;
 }
@@ -163,24 +104,127 @@ body {
   height: 32px;
   border-radius: 25px;
   border: 1px solid black;
-  background-color: aliceblue;
+  background-color: var(--toggle-text);
   animation-duration: 0.5s;
+  animation-name: none;
   animation-fill-mode: forwards;
 }
-
 @keyframes toDark {
   from {
     left: -1px;
   }
   to {
-    left: 61px;
+    left: 29px;
   }
 }
 @keyframes toLight {
   from {
-    left: 61px;
+    left: 29px;
   }
   to {
     left: -1px;
+  }
+}
+
+/* ~~~~~~~~~~ Container ~~~~~~~~~~ */
+.container {
+  position: absolute;
+  left: 10%;
+  z-index: 0;
+  /* ---- */
+  width: 0;
+  height: 100vh;
+  background-color: var(--toggle-body);
+  color: var(--toggle-text);
+  float: left;
+  overflow: auto;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--toggle-nav);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--picked-color);
+  border-radius: 25px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-blend-mode: luminosity 1;
+}
+/* Content Styling */
+.left,
+.right {
+  float: left;
+  width: 50%;
+  height: 100%;
+  opacity: 0;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-name: home;
+}
+.heading {
+  font-size: var(--heading-font-size);
+  padding: 50px;
+  margin-top: 15%;
+}
+.content {
+  font-size: var(--content-font-size);
+  padding: 50px;
+}
+.button {
+  padding: 15px;
+  background: var(--picked-color);
+  display: inline;
+  font-size: 1.5vw;
+  border-radius: 50px;
+  border: 2px solid var(--picked-color);
+  cursor: pointer;
+  margin-left: 50px;
+  color: var(--button-font-color);
+}
+.button:hover {
+  color: var(--toggle-text);
+  background-color: rgba(0, 0, 0, 0);
+}
+/* Container Animations */
+@keyframes slideOut {
+  from {
+    left: 10%;
+  }
+  to {
+    left: -90%;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 10%;
+  }
+}
+/* Contaienr Content Animation */
+@keyframes home {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+  from {
+    margin-left: -20px;
+  }
+  to {
+    margin-left: 0px;
+  }
+  from {
+    margin-top: -20px;
+  }
+  to {
+    margin-top: 0px;
   }
 }

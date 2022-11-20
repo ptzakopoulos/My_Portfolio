@@ -35,7 +35,8 @@ const pageTransition = (...args) => {
         return e.removeEventListener('click', openTab);
       });
 
-      classStyle('.container', 'animationName', 'none');
+      classStyle('.container', 'animation-name', 'none');
+      classStyle('.container', 'overflow', 'hidden');
 
       element.new.style.width = '90%';
       element.old.style.animationName = 'slideOut';
@@ -44,6 +45,7 @@ const pageTransition = (...args) => {
       setTimeout(function () {
         element.old.style.width = 0;
         element.old = element.new;
+        classStyle(`#${id}`, 'overflow', 'auto');
 
         buttonList.forEach((e) => {
           return e.addEventListener('click', openTab);

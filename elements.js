@@ -61,20 +61,6 @@ const domElements = {
 // Class Picker
 
 const classStyle = (className, attr, value) => {
-  // const stylesheet = document.styleSheets;
-  // const cssFiles = [...stylesheet];
-  // let boxParaRule;
-
-  // cssFiles.forEach((files) => {
-  //   boxParaRule;
-  //   return (boxParaRule = [...files.cssRules].find(
-  //     (r) => r.selectorText === className
-  //   ));
-  // });
-
-  // boxParaRule.style.setProperty(attr, value);
-  // Einai Mono gia classes kai ID pou einai katagegrammena mesa sta CSS Files, optoe den einai ergonomiko
-
   const element = document.querySelectorAll(className);
 
   const elements = [...element];

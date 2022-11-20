@@ -1,4 +1,4 @@
-//ts-check
+// @ts-check
 'use strict';
 import {
   pageList,
@@ -66,6 +66,7 @@ window.onload = () => {
   function toggleMode() {
     if (modeValue == 0) {
       // ~~~~~~~~~~ Elements Color Change ~~~~~~~~~~
+      toggleBt.style.animationName = 'toDark';
 
       rootStyle(rootColors.toggle.body, rootColors.dark.body);
       rootStyle(rootColors.toggle.nav, rootColors.dark.nav);
@@ -90,6 +91,8 @@ window.onload = () => {
       modeValue = 1;
     } else {
       // ~~~~~~~~~~ Elements Color Change ~~~~~~~~~~
+      toggleBt.style.animationName = 'toLight';
+
       rootStyle(rootColors.toggle.body, rootColors.light.body);
       rootStyle(rootColors.toggle.nav, rootColors.light.nav);
       rootStyle(rootColors.toggle.text, rootColors.light.text);
