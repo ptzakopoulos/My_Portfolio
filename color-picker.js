@@ -39,6 +39,7 @@ window.onload = () => {
   const colors = [red, green, blue, yellow];
 
   function colorPicker() {
+    // Theme Colors
     for (let i = 0; i < colors.length; i++) {
       colors[i].style.width = '30px';
       colors[i].style.height = '30px';
@@ -73,22 +74,6 @@ window.onload = () => {
       rootStyle(rootColors.toggle.nav, rootColors.dark.nav);
       rootStyle(rootColors.toggle.text, rootColors.dark.text);
 
-      // classStyle('.container', 'background', mode.container.dark);
-      // classStyle('.container', 'color', mode.sideMenu.text.dark);
-      // classStyle('.side-menu', 'background', mode.sideMenu.background.dark);
-      // classStyle('.side-menu *', 'color', mode.sideMenu.text.dark);
-
-      // for (let i = 0; i < pageList.length; i++) {
-      //   pageList[i].style.background = mode.container.dark;
-      //   pageList[i].style.color = mode.sideMenu.text.dark;
-      // }
-      // menu.style.background = mode.sideMenu.background.dark;
-      // menu.style.color = mode.sideMenu.text.dark;
-
-      // for (let i = 0; i < domElements.a.length; i++) {
-      //   domElements.a[i].style.color = mode.sideMenu.text.dark;
-      // }
-      // ~~~~~~~~~~ Button Animation Handler ~~~~~~~~~~
       modeValue = 1;
     } else {
       // ~~~~~~~~~~ Elements Color Change ~~~~~~~~~~
@@ -97,21 +82,7 @@ window.onload = () => {
       rootStyle(rootColors.toggle.body, rootColors.light.body);
       rootStyle(rootColors.toggle.nav, rootColors.light.nav);
       rootStyle(rootColors.toggle.text, rootColors.light.text);
-      // classStyle('.container', 'background', mode.container.light);
-      // classStyle('.container', 'color', mode.sideMenu.text.light);
-      // classStyle('.side-menu', 'background', mode.sideMenu.background.light);
-      // classStyle('.side-menu *', 'color', mode.sideMenu.text.light);
-      // for (let i = 0; i < pageList.length; i++) {
-      //   pageList[i].style.background = mode.container.light;
-      //   pageList[i].style.color = mode.sideMenu.text.light;
-      // }
-      // menu.style.background = mode.sideMenu.background.light;
-      // menu.style.color = mode.sideMenu.text.light;
 
-      // for (let i = 0; i < domElements.a.length; i++) {
-      //   domElements.a[i].style.color = mode.sideMenu.text.light;
-      // }
-      // ~~~~~~~~~~ Button Animation Handler ~~~~~~~~~~
       modeValue = 0;
     }
   }
