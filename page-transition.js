@@ -28,8 +28,22 @@ const pageTransition = (...args) => {
 
   // ~~~~~~~~~~ Page Transition Handler ~~~~~~~~~~
   function openTab() {
-    id = `${this.textContent.toLowerCase()}Cnt`; //Analoga me to koumpi pou patietai kai to keimeno pou exei, kataskevasei to ID pou tha dialextei argotera
+    let text = this.textContent;
+    let words = text.split(' ');
+    let result = '';
+
+    //Ελέγχει τα Key Words απο τα κουμπιά που πατάει ο Χρήστης. Τα Key Words (Home, About, Projects κλτ) έχουν γράμματα > 4, οπότε παρακάτω ελέγχεται αν η κάθε λέξη του κάθε κουμπιού που πατάει ο χρήστης έχει γράμματα >= 4 για να ξέρει ποια λέξη θα πάρει ως ID
+    words.forEach((e) => {
+      if (e.length >= 4) {
+        return (result = e);
+      }
+    });
+
+    id = `${result.toLowerCase()}Cnt`;
+
     element.new = document.getElementById(id);
+
+    element.new.scrollTo(0, 0); // *****************
 
     if (element.new == element.old) {
       console.error('sks');
