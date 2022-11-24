@@ -13,11 +13,13 @@
   --toggle-text: var(--nav-text-light-mode);
   --picked-color: #ed3824;
   /* Font-sizes */
-  --heading-font-size: 45px; /* *** */
+  --title-font-size: 45px; /* *** */
+  --heading-font-size: 35px; /* *** */
   --content-font-size: 25px; /* *** */
   /* Buttom */
   --button-font-color: rgb(228, 228, 228);
 }
+/* ______________________________________________________________ Global Classes ______________________________________________________________ */
 * {
   padding: 0;
   margin: 0;
@@ -30,6 +32,30 @@ body {
 }
 .transition {
   transition: 1s;
+}
+.highlight {
+  color: var(--picked-color);
+  font-weight: bold;
+}
+.title {
+  font-size: var(--title-font-size);
+}
+.content {
+  font-size: var(--content-font-size);
+  padding: 20px 50px;
+}
+.container {
+  position: absolute;
+  left: 15%;
+  z-index: 0;
+  /* ---- */
+  width: 0;
+  height: 100vh;
+  background-color: var(--toggle-body);
+  color: var(--toggle-text);
+  overflow: auto;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 /* ______________________________________________________________ HOME ______________________________________________________________ */
 /* ~~~~~~~~~~ Side Menu ~~~~~~~~~~ */
@@ -44,7 +70,7 @@ body {
   /* ---- */
   background-color: var(--toggle-nav);
   color: var(--toggle-text);
-  width: 10%;
+  width: 15%;
   height: 100vh;
   text-align: center;
 }
@@ -62,19 +88,20 @@ body {
 .side-menu ul > li > a {
   text-decoration: none;
   color: var(--toggle-text);
-  font-size: 20px; /* Needs to Change */
+  font-size: 23px; /* Needs to Change */
 }
 /* ~~~~~~~~~~ Color Change buttons ~~~~~~~~~~ */
+.color-palette {
+  display: flex;
+  justify-content: center;
+}
 .clr {
-  position: relative;
-  left: 50%;
-  margin-left: -15px;
-  margin-top: 20px;
   width: 30px;
   height: 30px;
   border-radius: 50%;
   border: 1px solid black;
   cursor: pointer;
+  margin: 0 10px;
 }
 #red {
   background-color: #4322f0;
@@ -130,19 +157,6 @@ body {
 }
 
 /* ~~~~~~~~~~ Container ~~~~~~~~~~ */
-.container {
-  position: absolute;
-  left: 10%;
-  z-index: 0;
-  /* ---- */
-  width: 0;
-  height: 100vh;
-  background-color: var(--toggle-body);
-  color: var(--toggle-text);
-  overflow: auto;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -164,15 +178,11 @@ body {
   animation-fill-mode: forwards;
   animation-name: home;
 }
-.heading {
-  font-size: var(--heading-font-size);
+#homeCnt .title {
   padding: 20px 50px;
   margin-top: 15%;
 }
-.content {
-  font-size: var(--content-font-size);
-  padding: 20px 50px;
-}
+
 .button {
   padding: 15px;
   background: var(--picked-color);
@@ -191,7 +201,7 @@ body {
 /* Container Animations */
 @keyframes slideOut {
   from {
-    left: 10%;
+    left: 15%;
   }
   to {
     left: -90%;
@@ -203,7 +213,7 @@ body {
     left: 100%;
   }
   to {
-    left: 10%;
+    left: 15%;
   }
 }
 /* Contaienr Content Animation */
@@ -228,6 +238,76 @@ body {
   }
 }
 /* ______________________________________________________________ ABOUT _____________________________________________________________ */
-h3 {
-  font-size: 40px;
+/* Title */
+#aboutCnt > .title {
+  width: 100%;
+  padding: 50px;
+
+  font-size: var(--title-font-size);
+}
+.line1 {
+  width: 150px;
+  border: 3px solid var(--picked-color);
+  border-radius: 25px;
+}
+.line2 {
+  width: 120px;
+  border: 3px solid var(--picked-color);
+  border-radius: 25px;
+  margin: 5px 0;
+}
+/* Heading */
+.about-heading {
+  padding: 20px 50px;
+  margin-top: 40px;
+  font-size: var(--heading-font-size);
+}
+.specs {
+  width: 100%;
+  height: 800px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 100px 0;
+}
+.sub-spec {
+  width: 40%;
+}
+.spec-heading {
+  font-size: var(--heading-font-size);
+  padding: 30px 0;
+}
+.spec-container {
+  width: 100%;
+  border-radius: 30px;
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.7);
+  border-left: 1px solid var(--picked-color);
+  border-bottom: 1px solid var(--picked-color);
+  display: flex;
+}
+
+.left-spec {
+  width: 20%;
+  border-radius: 30px;
+}
+.right-spec {
+  width: 80%;
+}
+.left-spec,
+.right-spec {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.spec-container li {
+  padding: 20px;
+  font-size: 16px;
+  height: 100px;
+  list-style: none;
+}
+.spec-container p {
+  opacity: 0.6;
+}
+.spec-title {
+  font-weight: bold;
+  font-size: 20px;
 }

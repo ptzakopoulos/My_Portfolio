@@ -17,6 +17,7 @@ const pageTransition = (...args) => {
   };
 
   let id;
+  let clickedBt;
 
   // ~~~~~~~~~~ Setting Containers' width to 0 ~~~~~~~~~~
   pageList.forEach((e) => {
@@ -24,7 +25,7 @@ const pageTransition = (...args) => {
   });
 
   // ~~~~~~~~~~ Setting Home's Width to 90% ~~~~~~~~~~
-  pageList[0].style.width = '90%';
+  pageList[0].style.width = '85%';
 
   // ~~~~~~~~~~ Page Transition Handler ~~~~~~~~~~
   function openTab() {
@@ -41,6 +42,13 @@ const pageTransition = (...args) => {
 
     id = `${result.toLowerCase()}Cnt`;
 
+    // clickedBt = result.toLocaleLowerCase();
+
+    // classStyle(`li`, 'background-color', 'transparent');
+    // classStyle(`#${clickedBt} > a`, 'color', 'var(--toggle-text)');
+    // classStyle(`#${clickedBt}`, 'background-color', 'var(--picked-color)');
+    // classStyle(`#${clickedBt} > a`, 'color', 'white');
+
     element.new = document.getElementById(id);
 
     element.new.scrollTo(0, 0); // *****************
@@ -55,7 +63,7 @@ const pageTransition = (...args) => {
       classStyle('.container', 'animation-name', 'none');
       classStyle('.container', 'overflow', 'hidden');
 
-      element.new.style.width = '90%';
+      element.new.style.width = '85%';
       element.old.style.animationName = 'slideOut';
       element.new.style.animationName = 'slideIn';
 

@@ -43,11 +43,11 @@ window.onload = () => {
     for (let i = 0; i < colors.length; i++) {
       colors[i].style.width = '30px';
       colors[i].style.height = '30px';
-      colors[i].style.marginLeft = '-15px';
+      colors[i].style.margin = '0 10px';
     }
     this.style.width = '40px';
     this.style.height = '40px';
-    this.style.marginLeft = '-20px';
+    this.style.margin = '-5px 5px';
 
     let pickedColor = window.getComputedStyle(this).backgroundColor;
 
