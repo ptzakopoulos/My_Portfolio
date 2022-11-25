@@ -8,9 +8,9 @@
   --nav-text-light-mode: rgb(42, 42, 42);
   --nav-text-dark-mode: rgb(228, 228, 228);
   /* Toggle Colors */
-  --toggle-body: var(--pages-light-mode);
-  --toggle-nav: var(--side-menu-light-mode);
-  --toggle-text: var(--nav-text-light-mode);
+  --toggle-body: var(--pages-dark-mode);
+  --toggle-nav: var(--side-menu-dark-mode);
+  --toggle-text: var(--nav-text-dark-mode);
   --picked-color: #ed3824;
   /* Font-sizes */
   --title-font-size: 45px; /* *** */
@@ -24,6 +24,18 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+@font-face {
+  font-family: Titles;
+  src: url(./Fonts/Outfit/static/Outfit-Bold.ttf);
+}
+@font-face {
+  font-family: Texts;
+  src: url(./Fonts/Outfit/static/Outfit-Thin.ttf);
+}
+@font-face {
+  font-family: Nav;
+  src: url(./Fonts/Outfit/static/Outfit-Regular.ttf);
 }
 body {
   background: var(--toggle-body);
@@ -39,6 +51,7 @@ body {
 }
 .title {
   font-size: var(--title-font-size);
+  font-family: Titles;
 }
 .content {
   font-size: var(--content-font-size);
@@ -56,6 +69,7 @@ body {
   overflow: auto;
   animation-duration: 1s;
   animation-fill-mode: forwards;
+  font-family: Texts;
 }
 /* ______________________________________________________________ HOME ______________________________________________________________ */
 /* ~~~~~~~~~~ Side Menu ~~~~~~~~~~ */
@@ -73,6 +87,8 @@ body {
   width: 15%;
   height: 100vh;
   text-align: center;
+  box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.8);
+  font-family: Nav;
 }
 .side-menu > ul > li {
   list-style: none;
@@ -139,7 +155,7 @@ body {
   animation-name: none;
   animation-fill-mode: forwards;
 }
-@keyframes toDark {
+@keyframes toLight {
   from {
     left: -1px;
   }
@@ -147,7 +163,7 @@ body {
     left: 29px;
   }
 }
-@keyframes toLight {
+@keyframes toDark {
   from {
     left: 29px;
   }
@@ -264,10 +280,10 @@ body {
 }
 .specs {
   width: 100%;
-  height: 800px;
   display: flex;
   justify-content: space-evenly;
   padding: 100px 0;
+  padding-bottom: 100px;
 }
 .sub-spec {
   width: 40%;

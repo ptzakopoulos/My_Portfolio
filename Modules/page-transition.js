@@ -42,19 +42,11 @@ const pageTransition = (...args) => {
 
     id = `${result.toLowerCase()}Cnt`;
 
-    // clickedBt = result.toLocaleLowerCase();
-
-    // classStyle(`li`, 'background-color', 'transparent');
-    // classStyle(`#${clickedBt} > a`, 'color', 'var(--toggle-text)');
-    // classStyle(`#${clickedBt}`, 'background-color', 'var(--picked-color)');
-    // classStyle(`#${clickedBt} > a`, 'color', 'white');
-
     element.new = document.getElementById(id);
 
     element.new.scrollTo(0, 0); // *****************
 
     if (element.new == element.old) {
-      console.error('sks');
     } else {
       buttonList.forEach((e) => {
         return e.removeEventListener('click', openTab);
