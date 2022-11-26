@@ -91,6 +91,7 @@ const rootStyle = (variable, value) => {
   document.documentElement.style.setProperty(variable, value);
 };
 
+// About Pageg - Writing Deleting Effect
 const specialityEffects = () => {
   const specialities = ['Tattoo Artist', 'Make Up Artist', 'Piercing Master'];
 

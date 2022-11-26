@@ -48,8 +48,10 @@ body {
 .highlight {
   color: var(--picked-color);
   font-weight: bold;
+  font-family: Nav;
 }
 .title {
+  width: 100%;
   font-size: var(--title-font-size);
   font-family: Titles;
 }
@@ -84,7 +86,7 @@ body {
   /* ---- */
   background-color: var(--toggle-nav);
   color: var(--toggle-text);
-  width: 15%;
+  width: 15vw;
   height: 100vh;
   text-align: center;
   box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.8);
@@ -256,10 +258,7 @@ body {
 /* ______________________________________________________________ ABOUT _____________________________________________________________ */
 /* Title */
 #aboutCnt > .title {
-  width: 100%;
   padding: 50px;
-
-  font-size: var(--title-font-size);
 }
 .line1 {
   width: 150px;
@@ -303,7 +302,8 @@ body {
 
 .left-spec {
   width: 20%;
-  border-radius: 30px;
+  /* border-radius: 30px; */
+  border-right: 3px solid gray;
 }
 .right-spec {
   width: 80%;
@@ -327,3 +327,7 @@ body {
   font-weight: bold;
   font-size: 20px;
 }
+/* ______________________________________________________________ Projects _____________________________________________________________ */
+/* #projectsCnt .title {
+  padding: 50px;
+} */
