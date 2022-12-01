@@ -1,7 +1,7 @@
 // @ts-check
 'use strict';
 
-import { pageList, buttonList, classStyle } from './elements.js';
+import { pageList, buttonList, classStyle } from './main.js';
 
 const pageTransition = (...args) => {
   // ~~~~~~~~~~ Event Listeners Handler ~~~~~~~~~~

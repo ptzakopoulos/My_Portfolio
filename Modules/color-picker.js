@@ -8,7 +8,7 @@ import {
   domElements,
   classStyle,
   rootStyle,
-} from './elements.js';
+} from './main.js';
 
 window.onload = () => {
   // ~~~~~~~~~~ Root Colors ~~~~~~~~~~
@@ -38,6 +38,7 @@ window.onload = () => {
 
   const colors = [red, green, blue, yellow];
 
+  // ~~~~~~~~~~~~~~~~ Theme Color Picker ~~~~~~~~~~~~~~~~
   function colorPicker() {
     // Theme Colors
     for (let i = 0; i < colors.length; i++) {
@@ -65,9 +66,9 @@ window.onload = () => {
 
   let modeValue = 0;
 
+  // ~~~~~~~~~~~~~~~~ Dark / Light Mode ~~~~~~~~~~~~~~~~
   function toggleMode() {
     if (modeValue == 0) {
-      // ~~~~~~~~~~ Elements Color Change ~~~~~~~~~~
       toggleBt.style.animationName = 'toLight';
 
       rootStyle(rootColors.toggle.body, rootColors.light.body);

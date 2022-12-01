@@ -43,7 +43,7 @@ body {
   overflow-x: hidden;
 }
 .transition {
-  transition: 1s;
+  transition: 0.7s;
 }
 .highlight {
   color: var(--picked-color);
@@ -54,6 +54,7 @@ body {
   width: 100%;
   font-size: var(--title-font-size);
   font-family: Titles;
+  padding: 50px;
 }
 .content {
   font-size: var(--content-font-size);
@@ -257,9 +258,6 @@ body {
 }
 /* ______________________________________________________________ ABOUT _____________________________________________________________ */
 /* Title */
-#aboutCnt > .title {
-  padding: 50px;
-}
 .line1 {
   width: 150px;
   border: 3px solid var(--picked-color);
@@ -328,6 +326,45 @@ body {
   font-size: 20px;
 }
 /* ______________________________________________________________ Projects _____________________________________________________________ */
-/* #projectsCnt .title {
+.projects-outter-container {
+  width: 100%;
+}
+.filter {
+  width: 100%;
   padding: 50px;
-} */
+  display: flex;
+  justify-content: center;
+}
+.filter-item {
+  font-size: var(--content-font-size);
+  border-bottom: 2px solid transparent;
+  margin: 0 30px;
+  padding: 0 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.filter-item:first-child {
+  color: var(--picked-color);
+  /* border-bottom: 2px solid var(--picked-color); */
+}
+.filter-item:hover {
+  color: var(--picked-color);
+  /* border-bottom: 2px solid var(--picked-color); */
+}
+.projects {
+  width: 100%;
+  padding: 50px 10%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.prj-item {
+  width: 300px;
+  height: 300px;
+  margin: 30px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.prj-item:hover {
+  transform: scale(1.15, 1.15);
+}
