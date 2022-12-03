@@ -31,24 +31,28 @@ window.onload = () => {
   };
 
   // ~~~~~~~~~~ Colors ~~~~~~~~~~
-  const red = document.getElementById('red');
-  const green = document.getElementById('green');
-  const blue = document.getElementById('blue');
-  const yellow = document.getElementById('yellow');
+  const clr1 = document.getElementById('red');
+  const clr2 = document.getElementById('blue');
+  const clr3 = document.getElementById('yellow');
+  const clr4 = document.getElementById('green');
 
-  const colors = [red, green, blue, yellow];
+  const colors = [clr1, clr2, clr3, clr4];
+
+  clr3.style.transform = 'scale(1.5, 1.5)';
 
   // ~~~~~~~~~~~~~~~~ Theme Color Picker ~~~~~~~~~~~~~~~~
   function colorPicker() {
     // Theme Colors
     for (let i = 0; i < colors.length; i++) {
-      colors[i].style.width = '30px';
-      colors[i].style.height = '30px';
-      colors[i].style.margin = '0 10px';
+      // colors[i].style.width = '30px';
+      // colors[i].style.height = '30px';
+      // colors[i].style.margin = '0 10px';
+      colors[i].style.transform = 'scale(1,1)';
     }
-    this.style.width = '40px';
-    this.style.height = '40px';
-    this.style.margin = '-5px 5px';
+    // this.style.width = '40px';
+    // this.style.height = '40px';
+    // this.style.margin = '-5px 5px';
+    this.style.transform = 'scale(1.5,1.5)';
 
     let pickedColor = window.getComputedStyle(this).backgroundColor;
 

@@ -1,6 +1,8 @@
 // @ts-check
 'use strict';
 
+// ~~~~~~~~~~~~~~~~~~~~ Global Variables - Library ~~~~~~~~~~~~~~~~~~~~
+
 const home = document.getElementById('homeCnt');
 const about = document.getElementById('aboutCnt');
 const prj = document.getElementById('projectsCnt');
@@ -72,7 +74,6 @@ const domElements = {
 };
 
 // Class Picker
-
 const classStyle = (className, attr, value) => {
   const element = document.querySelectorAll(className);
 
@@ -86,7 +87,6 @@ const classStyle = (className, attr, value) => {
 };
 
 //root style editing
-
 const rootStyle = (variable, value) => {
   document.documentElement.style.setProperty(variable, value);
 };
@@ -104,7 +104,7 @@ const specialityEffects = () => {
 
   /* Paremeteres 
     letter  - Counts the length of the arrays that hold the letters of each word. Example : 'Tatto Artist'.length = 12
-    word    - Counts the length of specialities objects that holds the words that are going to be displayed - length = 3
+    word    - Counts the length of specialities array that holds the words that are going to be displayed - length = 3
     write   - When Write = 1 function Writer() writes and when write = 0 function Writer() erases
     time    - setTimeout's time handler so write is medium speed, erase is fast speed and hold is slower speed
   */
@@ -117,7 +117,7 @@ const specialityEffects = () => {
 
   const writer = () => {
     if (write == 0 && letter == specialities[word].length) {
-      //When the function complete the writing proccess, sets the time of next call to 2s so the user will have time to read the word
+      //When the function completes the writing proccess, sets the time of next call to 2s so the user will have time to read the word
       time = 2000;
     } else if (write == 0 && letter < specialities[word].length) {
       //When the 2s period is over, time to erase the word gets shorter
@@ -130,7 +130,7 @@ const specialityEffects = () => {
     setTimeout(() => {
       if (letter < specialities[word].length && write == 1) {
         /* While the letter counter < word's length and write == 1, each word of specialities array is splitted 
-        to an array that hold each letter as an array element and the span element get's the next value of it every time 
+        to an array that holds each letter as an array element and the span element get's the next value of it every time 
         the function is called
         */
         specElem.innerHTML += specialities[word].split('')[letter];
@@ -146,10 +146,10 @@ const specialityEffects = () => {
         newArray = [...specElem.innerHTML];
 
         //Since letter counter is at the maximum value (word's length), by using splice, each time the funcion is called
-        //it get's and deletes the last element of the array
+        //it get's and deletes the last element of the array on every callBack
         newArray.splice(letter, 1);
 
-        //Setting the value of span equals to the newArray by character
+        //Setting the value of span equals to the newArray by character - as string (not array)
         specElem.innerHTML = newArray.join('');
 
         //Decreasing the letter counter in order to get the previues letter on every callback
