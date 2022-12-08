@@ -7,7 +7,7 @@ const home = document.getElementById('homeCnt');
 const about = document.getElementById('aboutCnt');
 const prj = document.getElementById('projectsCnt');
 const contact = document.getElementById('contactCnt');
-const merch = document.getElementById('merchantiseCnt');
+const merch = document.getElementById('merchandiseCnt');
 const menu = document.getElementById('menu');
 
 const pageList = [home, about, prj, merch, contact];
@@ -15,7 +15,7 @@ const pageList = [home, about, prj, merch, contact];
 const homeBt = document.getElementById('home');
 const aboutBt = document.getElementById('about');
 const projectsBt = document.getElementById('projects');
-const merchBt = document.getElementById('merchantise');
+const merchBt = document.getElementById('merchandise');
 const contactBt = document.getElementById('contact');
 const aboutAccessBt = document.getElementById('aboutBt');
 
@@ -189,6 +189,10 @@ const projectFilter = () => {
 
   //Filter proccess
   const filter = (event) => {
+    //Filter-Bt color Handler
+    classStyle('.filter-item', 'color', 'var(--toggle-text)');
+    classStyle(`#${event.target.id}`, 'color', 'var(--picked-color)');
+
     //clicked Id selector
     const id = event.target.id;
 
@@ -213,7 +217,10 @@ const projectFilter = () => {
   });
 };
 
-//Calling project FIltering Function
+//Calling projectFilter Function
 projectFilter();
+
+// ~~~~~~~~~~~~~~~~ Project Image Inspect ~~~~~~~~~~~~~~~~
+const imageInspect = () => {};
 
 export { pageList, buttonList, menu, domElements, classStyle, rootStyle };
