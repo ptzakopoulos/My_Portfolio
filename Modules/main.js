@@ -215,6 +215,37 @@ const projectFilter = () => {
   filterBts.forEach((e) => {
     e?.addEventListener('click', filter);
   });
+
+  // ~~~~~ Overlay ~~~~~
+  const prjItem = document.querySelectorAll('.prj-item');
+  const overlay = document.getElementById('overlay');
+  const overlayImage = document.getElementById('overlay-image');
+  const prjTitle = document.getElementById('prj-title');
+  const prjDesc = document.getElementById('prj-description');
+  const closeBt = document.getElementById('close');
+
+  const openOverlay = (e) => {
+    overlay.style.display = 'flex';
+
+    const src = e.target.attributes[1].value;
+    overlayImage.setAttribute('src', src);
+
+    const name = e.target.attributes[2].value;
+    prjTitle.innerText = name;
+
+    const content = e.target.attributes[3].value;
+    prjDesc.innerHTML = content;
+  };
+
+  prjItem.forEach((e) => {
+    e.addEventListener('click', openOverlay);
+  });
+
+  const closeOverlay = () => {
+    overlay.style.display = 'none';
+  };
+
+  closeBt.addEventListener('click', closeOverlay);
 };
 
 //Calling projectFilter Function

@@ -368,7 +368,47 @@ body {
 .prj-item:hover {
   transform: scale(1.15, 1.15);
 }
-.projects img {
+
+.overlay {
+  position: fixed;
   width: 100%;
   height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 3;
+  display: none;
+}
+.overlay > img {
+  height: 100%;
+}
+.prj-content {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.prj-title {
+  font-size: var(--heading-font-size);
+  padding: 30px 70px;
+  font-family: Titles;
+}
+.prj-description {
+  font-size: var(--content-font-size);
+  padding: 30px 70px;
+  font-family: Texts;
+}
+.prj-close {
+  position: absolute;
+  width: 50px;
+  text-align: center;
+  top: 20px;
+  right: 20px;
+  font-size: 40px;
+  cursor: pointer;
+  font-family: Nav;
+  border-radius: 25px;
+  font-weight: bolder;
+}
+.prj-close:hover {
+  background-color: white;
+  color: black;
 }
