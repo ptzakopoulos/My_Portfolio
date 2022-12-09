@@ -1,9 +1,7 @@
 // @ts-check
 'use strict';
 
-import { pageList, buttonList, classStyle } from './main.js';
-
-const pageTransition = (...args) => {
+export default function pageTransition(pageList, buttonList, classStyle) {
   // ~~~~~~~~~~ Event Listeners Handler ~~~~~~~~~~
   buttonList.forEach((e) => {
     return e.addEventListener('click', openTab);
@@ -82,6 +80,4 @@ const pageTransition = (...args) => {
     //If end
   }
   //openTab() end
-};
-
-pageTransition();
+}

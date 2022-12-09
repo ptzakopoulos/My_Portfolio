@@ -1,6 +1,10 @@
 // @ts-check
 'use strict';
 
+import projects from './projects.js';
+import pages from './page-transition.js';
+import colors from './color-picker.js';
+
 // ~~~~~~~~~~~~~~~~~~~~ Global Variables - Library ~~~~~~~~~~~~~~~~~~~~
 
 const home = document.getElementById('homeCnt');
@@ -28,51 +32,6 @@ const buttonList = [
   aboutAccessBt,
 ];
 
-// Dom Elements
-
-const lists = {
-  ol: document.getElementsByTagName('ol'),
-  ul: document.getElementsByTagName('ul'),
-  li: document.getElementsByTagName('li'),
-};
-
-const a = document.getElementsByTagName('a');
-const p = document.getElementsByTagName('p');
-const h1 = document.getElementsByTagName('h1');
-const h2 = document.getElementsByTagName('h2');
-const h3 = document.getElementsByTagName('h3');
-const h4 = document.getElementsByTagName('h4');
-const h5 = document.getElementsByTagName('h5');
-const div = document.getElementsByTagName('div');
-const span = document.getElementsByTagName('span');
-const section = document.getElementsByTagName('section');
-const footer = document.getElementsByTagName('footer');
-const header = document.getElementsByTagName('header');
-const button = document.getElementsByTagName('button');
-const input = document.getElementsByTagName('input');
-const label = document.getElementsByTagName('label');
-const form = document.getElementsByTagName('form');
-
-const domElements = {
-  lists: lists,
-  a: a,
-  p: p,
-  h1: h1,
-  h2: h2,
-  h3: h3,
-  h4: h4,
-  h5: h5,
-  div: div,
-  span: span,
-  section: section,
-  footer: footer,
-  header: header,
-  button: button,
-  input: input,
-  label: label,
-  form: form,
-};
-
 // Class Picker
 const classStyle = (className, attr, value) => {
   const element = document.querySelectorAll(className);
@@ -82,14 +41,17 @@ const classStyle = (className, attr, value) => {
   elements.forEach((i) => {
     return i.style.setProperty(attr, value);
   });
-
-  return classStyle;
 };
 
 //root style editing
 const rootStyle = (variable, value) => {
   document.documentElement.style.setProperty(variable, value);
 };
+
+// ~~~~~~~~~~~~~~~~~~~~~ Calling Modules ~~~~~~~~~~~~~~~~~~~~~
+pages(pageList, buttonList, classStyle);
+projects(classStyle);
+colors(rootStyle);
 
 // ~~~~~~~~~~~~~~~~ About Page - Writing Deleting Effect ~~~~~~~~~~~~~~~~
 const specialityEffects = () => {
@@ -175,83 +137,3 @@ const specialityEffects = () => {
 };
 
 specialityEffects();
-
-// ~~~~~~~~~~~~~~~~ Project Filter ~~~~~~~~~~~~~~~~
-const projectFilter = () => {
-  //Filter Buttons selector
-  const all = document.getElementById('prj-all');
-  const bw = document.getElementById('prj-bw');
-  const colored = document.getElementById('prj-colored');
-  const face = document.getElementById('prj-face');
-  const body = document.getElementById('prj-body');
-
-  const filterBts = [all, bw, colored, face, body];
-
-  //Filter proccess
-  const filter = (event) => {
-    //Filter-Bt color Handler
-    classStyle('.filter-item', 'color', 'var(--toggle-text)');
-    classStyle(`#${event.target.id}`, 'color', 'var(--picked-color)');
-
-    //clicked Id selector
-    const id = event.target.id;
-
-    //Id splitter - Get the Keyword - id
-    const selectedClass = id.split('-')[1];
-
-    //Setting Project Items to display : none
-    classStyle('.prj-item', 'display', 'none');
-
-    //Setting the Keyword's Classes to block / bw/colored/body/face
-    classStyle(`.${selectedClass}`, 'display', 'block');
-
-    //Case of clicking 'all' bt
-    if (id == 'prj-all') {
-      classStyle('.prj-item', 'display', 'block');
-    }
-  };
-
-  //Adding click event listeners to all filter buttons
-  filterBts.forEach((e) => {
-    e?.addEventListener('click', filter);
-  });
-
-  // ~~~~~ Overlay ~~~~~
-  const prjItem = document.querySelectorAll('.prj-item');
-  const overlay = document.getElementById('overlay');
-  const overlayImage = document.getElementById('overlay-image');
-  const prjTitle = document.getElementById('prj-title');
-  const prjDesc = document.getElementById('prj-description');
-  const closeBt = document.getElementById('close');
-
-  const openOverlay = (e) => {
-    overlay.style.display = 'flex';
-
-    const src = e.target.attributes[1].value;
-    overlayImage.setAttribute('src', src);
-
-    const name = e.target.attributes[2].value;
-    prjTitle.innerText = name;
-
-    const content = e.target.attributes[3].value;
-    prjDesc.innerHTML = content;
-  };
-
-  prjItem.forEach((e) => {
-    e.addEventListener('click', openOverlay);
-  });
-
-  const closeOverlay = () => {
-    overlay.style.display = 'none';
-  };
-
-  closeBt.addEventListener('click', closeOverlay);
-};
-
-//Calling projectFilter Function
-projectFilter();
-
-// ~~~~~~~~~~~~~~~~ Project Image Inspect ~~~~~~~~~~~~~~~~
-const imageInspect = () => {};
-
-export { pageList, buttonList, menu, domElements, classStyle, rootStyle };

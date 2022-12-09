@@ -1,16 +1,7 @@
 // @ts-check
 'use strict';
 
-import {
-  pageList,
-  buttonList,
-  menu,
-  domElements,
-  classStyle,
-  rootStyle,
-} from './main.js';
-
-window.onload = () => {
+export default function colors(rootStyle) {
   // ~~~~~~~~~~ Root Colors ~~~~~~~~~~
   const rootColors = {
     light: {
@@ -93,4 +84,4 @@ window.onload = () => {
   }
 
   themeMode.addEventListener('click', toggleMode);
-};
+}
