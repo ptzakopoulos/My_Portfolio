@@ -115,12 +115,12 @@ body {
   justify-content: center;
 }
 .clr {
-  width: 30px;
-  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
   border-radius: 50%;
   border: 1px solid black;
   cursor: pointer;
-  margin: 0 10px;
+  margin: 0 3%;
 }
 #red {
   background-color: #4322f0;
@@ -175,7 +175,7 @@ body {
   }
 }
 
-/* ~~~~~~~~~~ Container ~~~~~~~~~~ */
+/* ~~~~~~~~~~ Intro Container ~~~~~~~~~~ */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -255,6 +255,63 @@ body {
   to {
     margin-top: 0px;
   }
+}
+/* ~~~~~~~~~~ Projects Preview Container ~~~~~~~~~~ */
+.project-preview {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.carousel {
+  width: 100%;
+  position: relative;
+}
+#leftButton,
+#rightButton {
+  position: absolute;
+  top: 200px;
+}
+#rightButton {
+  right: 0;
+}
+.carousel-items {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.carousel-item {
+  display: none;
+  background-color: white;
+}
+.carousel-item:nth-child(1),
+.carousel-item:nth-child(3) {
+  display: block;
+  width: 250px;
+  height: 250px;
+}
+.carousel-item:nth-child(2) {
+  display: block;
+  width: 400px;
+  height: 400px;
+}
+.handler {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+#play,
+#stop,
+#leftButton,
+#rightButton {
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
 }
 /* ______________________________________________________________ ABOUT _____________________________________________________________ */
 /* Title */
