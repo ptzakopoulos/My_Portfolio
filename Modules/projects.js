@@ -1,4 +1,4 @@
-export default function projectFilter(classStyle) {
+export default function (classStyle) {
   //Filter Buttons selector
   const all = document.getElementById('prj-all');
   const bw = document.getElementById('prj-bw');
@@ -45,10 +45,12 @@ export default function projectFilter(classStyle) {
   const prjDesc = document.getElementById('prj-description');
   const closeBt = document.getElementById('close');
 
+  let src;
+
   const openOverlay = (e) => {
     overlay.style.display = 'flex';
 
-    const src = e.target.attributes[1].value;
+    src = e.target.attributes[1].value;
     overlayImage.setAttribute('src', src);
 
     const name = e.target.attributes[2].value;
@@ -56,6 +58,8 @@ export default function projectFilter(classStyle) {
 
     const content = e.target.attributes[3].value;
     prjDesc.innerHTML = content;
+
+    document.addEventListener('mousemove', imageInspect);
   };
 
   prjItem.forEach((e) => {
@@ -64,10 +68,48 @@ export default function projectFilter(classStyle) {
 
   const closeOverlay = () => {
     overlay.style.display = 'none';
+    document.removeEventListener('mousemove', imageInspect);
   };
 
   closeBt.addEventListener('click', closeOverlay);
 
   // ~~~~~~~~~~~~~~~~ Project Image Inspect ~~~~~~~~~~~~~~~~
-  const imageInspect = () => {};
+  const inspect = document.getElementById('inspect');
+
+  const imageInspect = (e) => {
+    const mouse = {
+      x: Number(e.clientX),
+      y: Number(e.clientY),
+    };
+
+    inspect.style.backgroundImage = `url('${src}')`;
+
+    if (mouse.x <= overlayImage.offsetWidth) {
+      inspect.style.backgroundSize = `${overlayImage.offsetWidth * 1.5}px ${
+        overlayImage.offsetHeight * 1.5
+      }px`;
+      inspect.style.backgroundPositionX = `-${overlayImage.offsetWidth / 4}px`;
+      inspect.style.backgroundPositionY = `-${overlayImage.offsetHeight / 4}px`;
+      inspect.style.display = 'block';
+      inspect.style.top = `${mouse.y - inspect.offsetHeight / 2}px`;
+      inspect.style.left = `${mouse.x - inspect.offsetWidth / 2}px`;
+
+      //Background Image Re-align - So the viewer is able to see more details
+      if (mouse.y >= window.innerHeight - 50) {
+        inspect.style.backgroundPositionY = `-${
+          overlayImage.offsetHeight / 4 + 100
+        }px`;
+      } else if (mouse.x >= overlayImage.offsetWidth - 50) {
+        inspect.style.backgroundPositionX = `-${
+          overlayImage.offsetWidth / 4 + 50
+        }px`;
+      } else if (mouse.x <= 50) {
+        inspect.style.backgroundPositionX = `-${
+          overlayImage.offsetWidth / 4 - 50
+        }px`;
+      }
+    } else {
+      inspect.style.display = 'none';
+    }
+  };
 }

@@ -1,7 +1,7 @@
 // @ts-check
 'use strict';
 
-export default function pageTransition(pageList, buttonList, classStyle) {
+export default function (pageList, buttonList, classStyle) {
   // ~~~~~~~~~~ Event Listeners Handler ~~~~~~~~~~
   buttonList.forEach((e) => {
     return e.addEventListener('click', openTab);

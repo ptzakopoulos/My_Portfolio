@@ -1,7 +1,7 @@
 // @ts-check
 'use strict';
 
-export default function colors(rootStyle) {
+export default function (rootStyle) {
   // ~~~~~~~~~~ Root Colors ~~~~~~~~~~
   const rootColors = {
     light: {

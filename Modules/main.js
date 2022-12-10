@@ -34,6 +34,7 @@ const projectsBt = document.getElementById('projects');
 const merchBt = document.getElementById('merchandise');
 const contactBt = document.getElementById('contact');
 const aboutAccessBt = document.getElementById('aboutBt');
+const projectsAccessBt = document.getElementById('toPrjBt');
 
 const buttonList = [
   homeBt,
@@ -42,6 +43,7 @@ const buttonList = [
   merchBt,
   contactBt,
   aboutAccessBt,
+  projectsAccessBt,
 ];
 
 // Class Picker

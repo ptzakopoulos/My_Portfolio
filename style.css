@@ -436,6 +436,7 @@ body {
 }
 .overlay > img {
   height: 100%;
+  cursor: none;
 }
 .prj-content {
   color: white;
@@ -469,5 +470,17 @@ body {
   background-color: white;
   color: black;
 }
-.zoom-in {
+.inspect {
+  display: none;
+  width: 200px;
+  height: 200px;
+  border: 2px solid var(--picked-color);
+  border-radius: 50%;
+  position: absolute;
+  cursor: none;
+  background-image: url('');
+  background-attachment: fixed;
+  /* background-position-x: 50%;
+  background-position-y: -50%;
+  background-size: 150%; */
 }
