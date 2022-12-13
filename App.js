@@ -1,10 +1,10 @@
 // @ts-check
 'use strict';
 
-import projectsModule from './projects.js';
-import pagesModule from './page-transition.js';
-import colorsModule from './color-picker.js';
-import aboutModule from './speciality.js';
+import projectsModule from './Modules/projects.js';
+import pagesModule from './Modules/page-transition.js';
+import colorsModule from './Modules/color-picker.js';
+import aboutModule from './Modules/speciality.js';
 
 // ~~~~~~~~~~~~~~~~~~~~ Global Variables - Library ~~~~~~~~~~~~~~~~~~~~
 
