@@ -29,26 +29,28 @@ export default function (rootStyle) {
 
   const colors = [clr1, clr2, clr3, clr4];
 
+  const merchImage = document.getElementById('merch-img');
+
   clr3.style.transform = 'scale(1.5, 1.5)';
 
   // ~~~~~~~~~~~~~~~~ Theme Color Picker ~~~~~~~~~~~~~~~~
   function colorPicker() {
     // Theme Colors
     for (let i = 0; i < colors.length; i++) {
-      // colors[i].style.width = '30px';
-      // colors[i].style.height = '30px';
-      // colors[i].style.margin = '0 10px';
       colors[i].style.transform = 'scale(1,1)';
     }
-    // this.style.width = '40px';
-    // this.style.height = '40px';
-    // this.style.margin = '-5px 5px';
     this.style.transform = 'scale(1.5,1.5)';
 
     let pickedColor = window.getComputedStyle(this).backgroundColor;
 
     rootStyle('--picked-color', pickedColor);
+
+    //T-shirt Color Change
+    console.log(merchImage?.attributes[0]);
+    merchImage.attributes[0].value = `./Images/Merchandise/${this.id}.png`;
+    // ./Images/Merchandise/${this.id}.png`
   }
+  //Color Picker Function End
 
   colors.forEach(function (e) {
     return e.addEventListener('click', colorPicker);

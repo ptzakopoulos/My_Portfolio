@@ -74,6 +74,16 @@ body {
   animation-fill-mode: forwards;
   font-family: Texts;
 }
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--toggle-nav);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--picked-color);
+  border-radius: 25px;
+}
 /* ______________________________________________________________ HOME ______________________________________________________________ */
 /* ~~~~~~~~~~ Side Menu ~~~~~~~~~~ */
 /* ~~~~~~~~~~ Logo ~~~~~~~~~~ */
@@ -176,26 +186,23 @@ body {
 }
 
 /* ~~~~~~~~~~ Intro Container ~~~~~~~~~~ */
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: var(--toggle-nav);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--picked-color);
-  border-radius: 25px;
-}
 /* Content Styling */
-.left,
-.right {
-  float: left;
-  width: 50%;
-  height: 100%;
+#homeCnt {
+  display: flex;
+  flex-direction: column;
+  gap: 300px;
+}
+.intro {
+  width: 100%;
+  display: flex;
   opacity: 0;
   animation-duration: 2s;
   animation-fill-mode: forwards;
   animation-name: home;
+}
+.intro > .left,
+.intro > .right {
+  width: 50%;
 }
 #homeCnt .title {
   padding: 20px 50px;
@@ -314,7 +321,35 @@ body {
   cursor: pointer;
 }
 /* ~~~~~~~~~~ Merchandise Container ~~~~~~~~~~ */
-
+.merchandise-preview {
+  width: 100%;
+  display: flex;
+}
+.merch-sub-left,
+.merch-sub-right {
+  width: 50%;
+}
+.merch-sub-left {
+  background-image: url('./Images/Merchandise/background.jpg');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100%;
+  background-attachment: fixed;
+  border-radius: 25px;
+  backdrop-filter: ;
+}
+.merchandise-preview img {
+  width: 100%;
+}
+.merch-heading {
+  font-size: var(--heading-font-size);
+  font-family: Nav;
+  padding: 20px 50px;
+}
+.merch-content {
+  font-size: var(--content-font-size);
+  font-family: Texts;
+}
 /* ______________________________________________________________ ABOUT _____________________________________________________________ */
 /* Title */
 .line1 {
