@@ -24,6 +24,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 @font-face {
   font-family: Titles;
@@ -336,7 +337,6 @@ body {
   background-size: 100%;
   background-attachment: fixed;
   border-radius: 25px;
-  backdrop-filter: ;
 }
 .merchandise-preview img {
   width: 100%;
@@ -520,4 +520,66 @@ body {
   /* background-position-x: 50%;
   background-position-y: -50%;
   background-size: 150%; */
+}
+/* ______________________________________________________________ Contact _____________________________________________________________ */
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+form input {
+  border-radius: 25px;
+  padding: 5px;
+  background-color: var(--toggle-nav);
+  color: var(--toggle-text);
+}
+label {
+  font-family: Nav;
+  font-size: var(--content-font-size);
+}
+.form-inputs {
+  display: flex;
+}
+.form-left,
+.form-right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  padding: 50px;
+}
+textarea {
+  border-radius: 25px;
+  padding: 10px;
+  font-family: Texts;
+  font-size: var(--content-font-size);
+  color: var(--toggle-text);
+  max-width: 600px;
+  min-width: 400px;
+  max-height: 400px;
+  min-height: 200px;
+  background-color: var(--toggle-nav);
+}
+.form-element {
+  text-align: center;
+}
+.form-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.form-button {
+  background-color: var(--toggle-text);
+  width: 150px;
+  color: var(--toggle-nav);
+  padding: 5px;
+  font-family: Nav;
+  font-size: 18px;
+  cursor: pointer;
+}
+.form-button:hover {
+  box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.7);
 }
