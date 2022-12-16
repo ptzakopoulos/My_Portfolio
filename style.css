@@ -521,6 +521,48 @@ body {
   background-position-y: -50%;
   background-size: 150%; */
 }
+/* ______________________________________________________________ Merchandise _____________________________________________________________ */
+.merch-area {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  padding: 50px;
+}
+.item {
+  position: relative;
+  display: flex;
+}
+.top-left-border,
+.bottom-right-border {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+.top-left-border {
+  border-top: 5px solid var(--picked-color);
+  border-left: 5px solid var(--picked-color);
+}
+.bottom-right-border {
+  bottom: 0;
+  right: 0;
+  border-bottom: 5px solid var(--picked-color);
+  border-right: 5px solid var(--picked-color);
+}
+.merch-area img {
+  width: 300px;
+}
+.item-info {
+  padding: 30px;
+}
+.item-name {
+  font-family: Nav;
+  font-size: 25px;
+  padding: 10px 0;
+}
+.item-description {
+  font-size: 20px;
+}
 /* ______________________________________________________________ Contact _____________________________________________________________ */
 form {
   display: flex;
