@@ -294,7 +294,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 50px;
-  padding: 200px;
+  padding: 250px;
   overflow: hidden;
   perspective: 1000px;
 }
@@ -312,47 +312,81 @@ body {
   color: black;
 }
 .item0 {
-  left: -30%;
-  z-index: 0;
+  left: 1%;
+  width: 150px;
+  height: 150px;
+  margin-left: 200px;
+  z-index: 1;
+  transform: rotate3d(0, 1, 0, 0.7turn);
 }
 .item1 {
-  left: 0%;
-  margin-left: 125px;
-  z-index: 1;
-  transform: rotate3d(0, 1, 0, -25deg);
+  left: 1%;
+  /* margin-left: 25px; */
+  z-index: 2;
+  transform: rotate3d(0, 1, 0, 0.8turn);
 }
 .item2 {
+  width: 350px;
+  height: 350px;
   left: 0%;
-  scale: 1.2;
-  margin-left: 250px;
-  z-index: 2;
-  transform: rotate3d(0, 1, 0, -15deg);
-}
-.item3 {
-  scale: 1.7;
-  left: 50%;
-  margin-left: -125px;
+  margin-left: 100px;
   z-index: 3;
+  transform: rotate3d(0, 1, 0, 0.9turn);
+}
+/* Middle Item */
+.item3 {
+  width: 450px;
+  height: 450px;
+  left: 50%;
+  margin-left: -225px;
+  z-index: 4;
+  transform: rotate3d(0, 1, 0, 1turn);
 }
 .item4 {
   left: 100%;
-  scale: 1.2;
-  margin-left: -500px;
-  z-index: 2;
-  transform: rotate3d(0, 1, 0, 15deg);
+  width: 350px;
+  height: 350px;
+  margin-left: -450px;
+  z-index: 3;
+  transform: rotate3d(0, 1, 0, 1.1turn);
 }
 .item5 {
-  left: 100%;
-  margin-left: -375px;
-  z-index: 1;
-  transform: rotate3d(0, 1, 0, 25deg);
+  left: 99%;
+  margin-left: -250px;
+  z-index: 2;
+  transform: rotate3d(0, 1, 0, 1.2turn);
 }
-.item6,
-.item7,
-.item8,
-.item9 {
-  left: 120%;
+.item6 {
+  left: 100%;
+  width: 150px;
+  height: 150px;
+  margin-left: -350px;
+  z-index: 1;
+  transform: rotate3d(0, 1, 0, 1.3turn);
+}
+.item7 {
+  width: 150px;
+  height: 150px;
+  left: 100%;
+  margin-left: -600px;
   z-index: 0;
+  transform: rotate3d(0, 1, 0, 1.4turn);
+}
+.item8 {
+  width: 150px;
+  height: 150px;
+  left: 50%;
+  margin-left: -75px;
+  z-index: 0;
+  transform: rotate3d(0, 1, 0, 1.5turn);
+}
+.item9 {
+  width: 150px;
+  height: 150px;
+  left: 0%;
+  margin-left: 450px;
+  z-index: 0;
+  transform: rotate3d(0, 1, 0, 1.6turn);
 }
 #c-item-1 {
   background-image: url(./Images/Projects/body\ -\ BW\ 2\ x500.jpg);
