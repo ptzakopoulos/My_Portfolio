@@ -48,7 +48,7 @@ export default function (pageList, buttonList, classStyle) {
 
     element.new = document.getElementById(id);
 
-    element.new.scrollTo(0, 0); // *****************
+    // element.new.scrollTo(0, 0); // *****************
 
     if (element.new == element.old) {
     } else {

@@ -276,36 +276,113 @@ body {
 .carousel {
   width: 100%;
   position: relative;
+  transform-style: preserve-3d;
 }
 #leftButton,
 #rightButton {
   position: absolute;
   top: 200px;
+  z-index: 100;
 }
 #rightButton {
   right: 0;
 }
 .carousel-items {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 50px;
+  padding: 200px;
+  overflow: hidden;
+  perspective: 1000px;
 }
 .carousel-item {
-  display: none;
-  background-color: white;
-}
-.carousel-item:nth-child(1),
-.carousel-item:nth-child(3) {
-  display: block;
   width: 250px;
   height: 250px;
-}
-.carousel-item:nth-child(2) {
+  scale: 1;
+  position: absolute;
   display: block;
-  width: 400px;
-  height: 400px;
+  background-color: white;
+  transition: all 1s linear;
+  background-size: contain;
+  background-position: center;
+  font-size: 50px;
+  color: black;
+}
+.item0 {
+  left: -30%;
+  z-index: 0;
+}
+.item1 {
+  left: 0%;
+  margin-left: 125px;
+  z-index: 1;
+  transform: rotate3d(0, 1, 0, -25deg);
+}
+.item2 {
+  left: 0%;
+  scale: 1.2;
+  margin-left: 250px;
+  z-index: 2;
+  transform: rotate3d(0, 1, 0, -15deg);
+}
+.item3 {
+  scale: 1.7;
+  left: 50%;
+  margin-left: -125px;
+  z-index: 3;
+}
+.item4 {
+  left: 100%;
+  scale: 1.2;
+  margin-left: -500px;
+  z-index: 2;
+  transform: rotate3d(0, 1, 0, 15deg);
+}
+.item5 {
+  left: 100%;
+  margin-left: -375px;
+  z-index: 1;
+  transform: rotate3d(0, 1, 0, 25deg);
+}
+.item6,
+.item7,
+.item8,
+.item9 {
+  left: 120%;
+  z-index: 0;
+}
+#c-item-1 {
+  background-image: url(./Images/Projects/body\ -\ BW\ 2\ x500.jpg);
+}
+#c-item-2 {
+  background-image: url(./Images/Projects/body\ -\ BW\ 3\ x500.jpg);
+}
+#c-item-3 {
+  background-image: url(./Images/Projects/body\ -\ BW\ x500.jpg);
+}
+#c-item-4 {
+  background-image: url(./Images/Projects/body\ -\ colored\ 2\ x500.jpg);
+}
+#c-item-5 {
+  background-image: url(./Images/Projects/body\ -\ colored\ 3\ x500.jpg);
+}
+#c-item-6 {
+  background-image: url(./Images/Projects/body\ -\ colored\ x500.jpg);
+}
+#c-item-7 {
+  background-image: url(./Images/Projects/face-bw\ 1.png);
+}
+#c-item-8 {
+  background-image: url(./Images/Projects/face-bw\ 2.png);
+}
+#c-item-9 {
+  background-image: url(./Images/Projects/face-color\ 2.png);
+}
+#c-item-10 {
+  background-image: url(./Images/Projects/face-colored\ 1.png);
 }
 .handler {
   display: flex;

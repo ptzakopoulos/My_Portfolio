@@ -5,6 +5,7 @@ import projectsModule from './Modules/projects.js';
 import pagesModule from './Modules/page-transition.js';
 import colorsModule from './Modules/color-picker.js';
 import aboutModule from './Modules/speciality.js';
+import carousel from './Modules/carousel.js';
 
 // ~~~~~~~~~~~~~~~~~~~~ Global Variables - Library ~~~~~~~~~~~~~~~~~~~~
 
@@ -69,6 +70,7 @@ const rootStyle = (variable, value) => {
 switch (true) {
   case win.width >= 1100:
     pagesModule(pageList, buttonList, classStyle);
+    carousel();
     break;
   default:
     break;
