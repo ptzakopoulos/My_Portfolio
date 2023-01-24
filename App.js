@@ -6,6 +6,7 @@ import pagesModule from './Modules/page-transition.js';
 import colorsModule from './Modules/color-picker.js';
 import aboutModule from './Modules/speciality.js';
 import carousel from './Modules/carousel.js';
+import countries from './Modules/phoneCodes.json' assert { type: 'json' };
 
 // ~~~~~~~~~~~~~~~~~~~~ Global Variables - Library ~~~~~~~~~~~~~~~~~~~~
 
@@ -67,6 +68,10 @@ const rootStyle = (variable, value) => {
 
 // ~~~~~~~~~~~~~~~~~~~~~ Calling Modules ~~~~~~~~~~~~~~~~~~~~~
 
+// fetch('./Modules/phoneCodes.json')
+//   .then((response) => response.json())
+//   .then((json) => console.log(json[0]));
+
 switch (true) {
   case win.width >= 1100:
     pagesModule(pageList, buttonList, classStyle);
@@ -79,3 +84,29 @@ switch (true) {
 projectsModule(classStyle);
 colorsModule(rootStyle);
 aboutModule();
+
+// ~~~~~~~~~~~~~~~~~~~~~ Contact Form ~~~~~~~~~~~~~~~~~~~~~
+
+const selector = document.getElementById('country');
+
+for (let i = 0; i < countries.length; i++) {
+  const optionCreate = document.createElement('option');
+  selector?.appendChild(optionCreate);
+  const option = document.querySelectorAll('option')[i];
+  option.setAttribute('value', countries[i].name);
+  option.innerHTML = countries[i].name;
+}
+
+const autoFill = (e) => {
+  const countrySelected = e.target.value;
+
+  for (let i = 0; i < countries.length; i++) {
+    if (countries[i].name == countrySelected) {
+      console.log(countries[i].dial_code);
+    }
+  }
+};
+
+selector?.addEventListener('change', autoFill);
+
+let country = 'Greece';

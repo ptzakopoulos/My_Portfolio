@@ -18,6 +18,9 @@
   --content-font-size: 25px; /* *** */
   /* Buttom */
   --button-font-color: rgb(228, 228, 228);
+  /* Cube Dims */
+  --cube-width: 200px;
+  --divider: 2;
 }
 /* ______________________________________________________________ Global Classes ______________________________________________________________ */
 * {
@@ -640,39 +643,96 @@ body {
   gap: 100px;
   padding: 50px;
 }
+.merch-area > * {
+  border: 1px solid white;
+}
 .item {
+  width: 100%;
+  display: flex;
+  padding: 100px;
+}
+.merch-item-left {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.prespective {
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+}
+.box {
+  width: var(--cube-width);
+  height: var(--cube-width);
+  transform-style: preserve-3d;
   position: relative;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate3d(1, 1, 1, 0turn);
+  animation: rotate 4s linear infinite;
 }
-.top-left-border,
-.bottom-right-border {
+@keyframes rotate {
+  from {
+    transform: rotate3d(1, 1, 1, 0turn);
+  }
+  to {
+    transform: rotate3d(1, 1, 1, 1turn);
+  }
+}
+.box > div:not(.inner) {
+  width: inherit;
+  height: inherit;
   position: absolute;
-  width: 100px;
-  height: 100px;
+  transition: all 0.5s linear;
+  background-image: url(./Images/Merchandise/present.jpg);
+  background-size: contain;
 }
-.top-left-border {
-  border-top: 5px solid var(--picked-color);
-  border-left: 5px solid var(--picked-color);
+.box > div {
+  position: absolute;
 }
-.bottom-right-border {
-  bottom: 0;
-  right: 0;
-  border-bottom: 5px solid var(--picked-color);
-  border-right: 5px solid var(--picked-color);
+.inner {
+  width: calc(var(--cube-width) / 1.1);
+  height: calc(var(--cube-width) / 1.1);
+  animation: inner 4s linear infinite;
+  background-image: url(./Images/Merchandise/tshirtNoBg.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-.merch-area img {
-  width: 300px;
+@keyframes inner {
+  from {
+    transform: rotate3d(1, 1, 1, 0turn);
+  }
+  to {
+    transform: rotate3d(1, 1, 1, -1turn);
+  }
 }
-.item-info {
-  padding: 30px;
+.box > .front {
+  transform: translateZ(calc(var(--cube-width) / var(--divider)));
 }
-.item-name {
-  font-family: Nav;
-  font-size: 25px;
-  padding: 10px 0;
+.box > .left {
+  left: calc(var(--cube-width) / var(--divider) * -1);
+  transform: rotateY(-90deg);
 }
-.item-description {
-  font-size: 20px;
+.box > .right {
+  left: calc(var(--cube-width) / var(--divider));
+  transform: rotateY(90deg);
+}
+.box > .back {
+  transform: translateZ(calc(var(--cube-width) / var(--divider) * -1));
+}
+.box > .top {
+  top: calc(var(--cube-width) / var(--divider) * -1);
+  transform: rotateX(90deg);
+}
+.box > .bottom {
+  top: calc(var(--cube-width) / var(--divider));
+  transform: rotateX(-90deg);
+}
+.box:hover {
+  --divider: 1.2;
 }
 /* ______________________________________________________________ Contact _____________________________________________________________ */
 form {
