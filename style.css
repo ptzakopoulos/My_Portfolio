@@ -731,8 +731,9 @@ body {
   top: calc(var(--cube-width) / var(--divider));
   transform: rotateX(-90deg);
 }
-.box:hover {
+.box:hover div:not(.inner) {
   --divider: 1.2;
+  opacity: 0.2;
 }
 /* ______________________________________________________________ Contact _____________________________________________________________ */
 form {
