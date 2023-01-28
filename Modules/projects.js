@@ -11,8 +11,11 @@ export default function (classStyle) {
   //Filter proccess
   const filter = (event) => {
     //Filter-Bt color Handler
-    classStyle('.filter-item', 'color', 'var(--toggle-text)');
-    classStyle(`#${event.target.id}`, 'color', 'var(--picked-color)');
+    //Class Handler chosen cuz in case of color change directly in the class :hover effects are disabled
+    filterBts.forEach((e) => {
+      e.classList.remove('active');
+    });
+    event.target.classList.add('active');
 
     //clicked Id selector
     const id = event.target.id;
@@ -47,25 +50,35 @@ export default function (classStyle) {
 
   let src;
 
+  //Function respensible for Overlay
   const openOverlay = (e) => {
     overlay.style.display = 'flex';
 
+    //Getting the image src from clicked project
     src = e.target.attributes[1].value;
+    //Render Image to the overlay
     overlayImage.setAttribute('src', src);
 
+    //Getting the name of the clicked project
     const name = e.target.attributes[2].value;
+    //Render Image to the overlay
     prjTitle.innerText = name;
 
+    //Getting the content of cklicked project
     const content = e.target.attributes[3].value;
+    //Render Image to the overlay
     prjDesc.innerHTML = content;
 
+    //Adding the Eventlistener responsible for the Inspect effect
     document.addEventListener('mousemove', imageInspect);
   };
 
+  //Adding click event listeners for the open overlay effect
   prjItem.forEach((e) => {
     e.addEventListener('click', openOverlay);
   });
 
+  //Close overlay listener
   const closeOverlay = () => {
     overlay.style.display = 'none';
     document.removeEventListener('mousemove', imageInspect);
@@ -74,16 +87,20 @@ export default function (classStyle) {
   closeBt.addEventListener('click', closeOverlay);
 
   // ~~~~~~~~~~~~~~~~ Project Image Inspect ~~~~~~~~~~~~~~~~
+  //Inspect element is the circle displayed on top of the image
   const inspect = document.getElementById('inspect');
 
+  //Getting mouse coordinates while hovering on image
   const imageInspect = (e) => {
     const mouse = {
       x: Number(e.clientX),
       y: Number(e.clientY),
     };
 
+    //Setting inspect elemet's Background image to the image of the clicked project
     inspect.style.backgroundImage = `url('${src}')`;
 
+    //Background image position adjustments for better navigation on image
     if (mouse.x <= overlayImage.offsetWidth) {
       inspect.style.backgroundSize = `${overlayImage.offsetWidth * 1.5}px ${
         overlayImage.offsetHeight * 1.5

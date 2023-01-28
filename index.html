@@ -11,7 +11,11 @@
     <!-- ~~~~~~~~~~ Side Menu ~~~~~~~~~~ -->
     <div class="side-menu" id="menu">
       <!-- ~~~~~~~~~~ Logo ~~~~~~~~~~ -->
-      <div class="logo">Logo</div>
+      <div class="logo">
+        <a href="index.html">
+          <img src="./Images/Logo.png" alt="Logo" />
+        </a>
+      </div>
 
       <!-- ~~~~~~~~~~ Menu Elements ~~~~~~~~~~ -->
       <ul>
@@ -295,7 +299,7 @@
       </div>
       <div class="projects-outter-container">
         <div class="filter">
-          <div class="filter-item transition" id="prj-all">All</div>
+          <div class="filter-item transition active" id="prj-all">All</div>
           <div class="filter-item transition" id="prj-bw">Black & White</div>
           <div class="filter-item transition" id="prj-colored">Colored</div>
           <div class="filter-item transition" id="prj-face">Face</div>
@@ -562,12 +566,20 @@
 
           <div class="form-right">
             <div class="form-element">
+              <input
+                name="phone_Code"
+                type="text"
+                disabled="disabled"
+                value="+30"
+              />
+            </div>
+            <div class="form-element">
               <label for="tel">Phone Number</label>
               <br />
               <input
                 type="tel"
                 name="tel"
-                placeholder="+30 6912345678"
+                placeholder="6912345678"
                 id="phoneNumber"
               />
             </div>

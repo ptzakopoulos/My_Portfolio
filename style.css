@@ -93,6 +93,10 @@ body {
 /* ~~~~~~~~~~ Logo ~~~~~~~~~~ */
 .logo {
   margin: 30px 0px;
+  width: 100%;
+}
+.logo img {
+  width: 50%;
 }
 .side-menu {
   position: fixed;
@@ -107,10 +111,18 @@ body {
   box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.8);
   font-family: Nav;
 }
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .side-menu > ul > li {
   list-style: none;
   padding: 20px;
   cursor: pointer;
+  width: 70%;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
 }
 .side-menu > ul > li:hover {
   background-color: var(--picked-color);
@@ -551,10 +563,10 @@ body {
   font-weight: bold;
   cursor: pointer;
 }
-.filter-item:first-child {
+.filter > .active {
   color: var(--picked-color);
-  /* border-bottom: 2px solid var(--picked-color); */
 }
+
 .filter-item:hover {
   color: var(--picked-color);
   /* border-bottom: 2px solid var(--picked-color); */
@@ -572,9 +584,11 @@ body {
   margin: 30px;
   cursor: pointer;
   transition: 0.5s;
+  box-shadow: 0px 00px 0px 0px rgba(0, 0, 0, 0.5);
 }
 .prj-item:hover {
   transform: scale(1.15, 1.15);
+  box-shadow: 10px 20px 15px 5px rgba(0, 0, 0, 0.5);
 }
 
 .overlay {
