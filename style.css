@@ -1,6 +1,7 @@
 :root {
   /* Container */
-  --pages-dark-mode: rgb(42, 42, 42);
+  /* --pages-dark-mode: rgb(42, 42, 42); */
+  --pages-dark-mode: rgb(25, 25, 25);
   --pages-light-mode: rgb(228, 228, 228);
   /* Side Menu */
   --side-menu-dark-mode: rgb(17, 17, 17);
@@ -77,6 +78,9 @@ body {
   animation-duration: 1s;
   animation-fill-mode: forwards;
   font-family: Texts;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 ::-webkit-scrollbar {
   width: 10px;
@@ -87,6 +91,12 @@ body {
 ::-webkit-scrollbar-thumb {
   background: var(--picked-color);
   border-radius: 25px;
+}
+.footer {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.15);
+  text-align: center;
+  padding: 20px;
 }
 /* ______________________________________________________________ HOME ______________________________________________________________ */
 /* ~~~~~~~~~~ Side Menu ~~~~~~~~~~ */
@@ -209,12 +219,44 @@ ul {
   gap: 300px;
 }
 .intro {
+  z-index: 1;
+  position: relative;
   width: 100%;
   display: flex;
   opacity: 0;
   animation-duration: 2s;
   animation-fill-mode: forwards;
   animation-name: home;
+}
+/* THis nees to be either moved down or removed */
+form:before {
+  z-index: -1;
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: inherit;
+  background-image: url(./Images/wings.png);
+  background-size: 100% 100%;
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-blend-mode: lighten;
+  mask-image: url(./Images/mask.png);
+  -webkit-mask-image: url(./Images/mask.png);
+  -webkit-mask-size: 1500% 100%;
+  -webkit-mask-position: 100%;
+  animation: svg1 1s steps(14) forwards;
+}
+@keyframes svg1 {
+  from {
+    -webkit-mask-position: 0%;
+  }
+  to {
+    -webkit-mask-position: 100%;
+  }
 }
 .intro > .left,
 .intro > .right {
@@ -287,6 +329,7 @@ ul {
   justify-content: center;
   align-items: center;
   gap: 30px;
+  position: relative;
 }
 .carousel {
   width: 100%;
@@ -657,9 +700,7 @@ ul {
   gap: 100px;
   padding: 50px;
 }
-.merch-area > * {
-  border: 1px solid white;
-}
+
 .item {
   width: 100%;
   display: flex;
@@ -684,15 +725,15 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: rotate3d(1, 1, 1, 0turn);
+  transform: rotate3d(1, 2, 1, 0turn);
   animation: rotate 4s linear infinite;
 }
 @keyframes rotate {
   from {
-    transform: rotate3d(1, 1, 1, 0turn);
+    transform: rotate3d(1, 2, 1, 0turn);
   }
   to {
-    transform: rotate3d(1, 1, 1, 1turn);
+    transform: rotate3d(1, 2, 1, 1turn);
   }
 }
 .box > div:not(.inner) {
@@ -700,8 +741,10 @@ ul {
   height: inherit;
   position: absolute;
   transition: all 0.5s linear;
-  background-image: url(./Images/Merchandise/present.jpg);
-  background-size: contain;
+  /* background-image: url(./Images/Merchandise/present.jpg);
+  background-size: contain; */
+  background-color: rgba(94, 94, 94, 0.5);
+  border: 4px solid rgba(0, 0, 0, 0.1);
 }
 .box > div {
   position: absolute;
@@ -717,10 +760,10 @@ ul {
 }
 @keyframes inner {
   from {
-    transform: rotate3d(1, 1, 1, 0turn);
+    transform: rotate3d(1, 2, 1, 0turn);
   }
   to {
-    transform: rotate3d(1, 1, 1, -1turn);
+    transform: rotate3d(1, 2, 1, -1turn);
   }
 }
 .box > .front {
@@ -757,27 +800,45 @@ form {
   align-items: center;
   gap: 30px;
 }
-form input {
+form input,
+form select {
   border-radius: 25px;
   padding: 5px;
-  background-color: var(--toggle-nav);
+  /* background-color: var(--toggle-nav); */
+  background-color: var(--toggle-body);
   color: var(--toggle-text);
+  font-size: 16px;
+}
+form input {
+  width: 100%;
 }
 label {
   font-family: Nav;
-  font-size: var(--content-font-size);
+  font-size: 16px;
 }
 .form-inputs {
-  display: flex;
-}
-.form-left,
-.form-right {
-  width: 50%;
+  width: 600px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  align-items: center;
+  gap: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 5px 5px 30px 5px rgba(0, 0, 0, 0.9);
+  border-radius: 25px;
   padding: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.phone-details {
+  display: flex;
+  align-items: flex-end;
+}
+.phone-details > div:nth-child(1) {
+  width: 40%;
+}
+.phone-details > div:nth-child(2) {
+  width: 15%;
+}
+.phone-details > div:nth-child(3) {
+  width: 45%;
 }
 textarea {
   border-radius: 25px;
@@ -785,20 +846,21 @@ textarea {
   font-family: Texts;
   font-size: var(--content-font-size);
   color: var(--toggle-text);
-  max-width: 600px;
-  min-width: 400px;
-  max-height: 400px;
-  min-height: 200px;
+  width: 100%;
+  height: 100%;
   background-color: var(--toggle-nav);
 }
 .form-element {
-  text-align: center;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
 }
 .form-buttons {
   display: flex;
   justify-content: center;
   gap: 30px;
 }
+
 .form-button {
   background-color: var(--toggle-text);
   width: 150px;
@@ -807,7 +869,15 @@ textarea {
   font-family: Nav;
   font-size: 18px;
   cursor: pointer;
+  filter: invert(1);
+  transition: all 0.5s linear;
 }
-.form-button:hover {
-  box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.7);
+.form-button:active {
+  filter: invert(0);
+}
+.incorrect {
+  border: 2px solid red;
+}
+.disabled {
+  filter: opacity(0.1);
 }

@@ -1,6 +1,3 @@
-// @ts-check
-'use strict';
-
 import projectsModule from './Modules/projects.js';
 import pagesModule from './Modules/page-transition.js';
 import colorsModule from './Modules/color-picker.js';
@@ -88,6 +85,7 @@ aboutModule();
 // ~~~~~~~~~~~~~~~~~~~~~ Contact Form ~~~~~~~~~~~~~~~~~~~~~
 
 const selector = document.getElementById('country');
+const phoneCode = document.getElementById('phone_code');
 
 for (let i = 0; i < countries.length; i++) {
   const optionCreate = document.createElement('option');
@@ -102,11 +100,85 @@ const autoFill = (e) => {
 
   for (let i = 0; i < countries.length; i++) {
     if (countries[i].name == countrySelected) {
-      console.log(countries[i].dial_code);
+      phoneCode.value = countries[i].dial_code;
     }
   }
 };
 
 selector?.addEventListener('change', autoFill);
 
-let country = 'Greece';
+// __________ Input Check with regular Expressions __________
+
+const sendButton = document.getElementById('submit');
+const inputs = document.querySelectorAll('input');
+
+const regs = {
+  email: [/@gmail.com$/, /@gmail.gr$/, /@hotmail.com$/, /@hotmail.com$/],
+  phone: /^\d{10}$/,
+  name: /^[a-zA-Z]{2,16}$/,
+};
+
+const inputValidation = () => {
+  let array = [...document.getElementsByClassName('input')];
+
+  if (array.every((e) => e.attributes[0].value == 'correct')) {
+    sendButton.removeAttribute('disabled');
+    sendButton.classList.remove('disabled');
+    return true;
+  } else {
+    return false;
+  }
+};
+
+const formValidation = (input) => {
+  switch (true) {
+    //Email validation
+    case input.target.name == 'email':
+      if (regs.email.every((e) => e.test(input.target.value) == false)) {
+        input.target.style.border = '2px solid red';
+        input.target.attributes[0].value = 'incorrect';
+        sendButton.setAttribute('disabled', 'disabled');
+        sendButton.classList.add('disabled');
+      } else {
+        input.target.style.border = 'none';
+        input.target.attributes[0].value = 'correct';
+      }
+      break;
+    //Phone Validation
+    case input.target.name == 'phone':
+      if (regs.phone.test(input.target.value)) {
+        input.target.style.border = 'none';
+        input.target.attributes[0].value = 'correct';
+      } else {
+        input.target.attributes[0].value = 'incorrect';
+        input.target.style.border = '2px solid red';
+        sendButton.setAttribute('disabled', 'disabled');
+        sendButton.classList.add('disabled');
+      }
+      break;
+    //First / Last Name validation
+    case input.target.name == 'firstName' || input.target.name == 'lastName':
+      if (regs.name.test(input.target.value)) {
+        input.target.style.border = 'none';
+        input.target.attributes[0].value = 'correct';
+      } else {
+        input.target.attributes[0].value = 'incorrect';
+        input.target.style.border = '2px solid red';
+        sendButton.setAttribute('disabled', 'disabled');
+        sendButton.classList.add('disabled');
+      }
+      break;
+  }
+  inputValidation();
+};
+
+inputs.forEach((e) => {
+  e.addEventListener('blur', formValidation);
+});
+
+sendButton.addEventListener('click', (e) => {
+  if (inputValidation() == true) {
+  } else {
+    e.preventDefault;
+  }
+});

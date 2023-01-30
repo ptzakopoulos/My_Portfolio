@@ -50,7 +50,7 @@ export default function (classStyle) {
 
   let src;
 
-  //Function respensible for Overlay
+  //Function respοnsible for Overlay
   const openOverlay = (e) => {
     overlay.style.display = 'flex';
 
