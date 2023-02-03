@@ -1,0 +1,930 @@
+:root {
+  /* Container */
+  /* --pages-dark-mode: rgb(42, 42, 42); */
+  --pages-dark-mode: rgb(25, 25, 25);
+  --pages-light-mode: rgb(228, 228, 228);
+  /* Side Menu */
+  --side-menu-dark-mode: rgb(17, 17, 17);
+  --side-menu-light-mode: rgb(176, 176, 176);
+  --nav-text-light-mode: rgb(42, 42, 42);
+  --nav-text-dark-mode: rgb(228, 228, 228);
+  /* Toggle Colors */
+  --toggle-body: var(--pages-dark-mode);
+  --toggle-nav: var(--side-menu-dark-mode);
+  --toggle-text: var(--nav-text-dark-mode);
+  --picked-color: #ed3824;
+  /* Font-sizes */
+  --title-font-size: 45px; /* *** */
+  --heading-font-size: 35px; /* *** */
+  --content-font-size: 25px; /* *** */
+  /* Buttom */
+  --button-font-color: rgb(228, 228, 228);
+  /* Cube Dims */
+  --cube-width: 200px;
+  --divider: 2;
+}
+/* ______________________________________________________________ Global Classes ______________________________________________________________ */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+@font-face {
+  font-family: Titles;
+  src: url(../Fonts/Outfit/static/Outfit-Bold.ttf);
+}
+@font-face {
+  font-family: Texts;
+  src: url(../Fonts/Outfit/static/Outfit-Thin.ttf);
+}
+@font-face {
+  font-family: Nav;
+  src: url(../Fonts/Outfit/static/Outfit-Regular.ttf);
+}
+body {
+  background: var(--toggle-body);
+  height: 100vh;
+  overflow-x: hidden;
+}
+.transition {
+  transition: 0.7s;
+}
+.highlight {
+  color: var(--picked-color);
+  font-weight: bold;
+  font-family: Nav;
+}
+.title {
+  width: 100%;
+  font-size: var(--title-font-size);
+  font-family: Titles;
+  padding: 50px;
+}
+.content {
+  font-size: var(--content-font-size);
+  padding: 20px 50px;
+}
+.container {
+  position: absolute;
+  left: 15%;
+  z-index: 0;
+  /* ---- */
+  width: 0;
+  height: 100vh;
+  background-color: var(--toggle-body);
+  color: var(--toggle-text);
+  overflow: auto;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  font-family: Texts;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--toggle-nav);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--picked-color);
+  border-radius: 25px;
+}
+.footer {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.15);
+  text-align: center;
+  padding: 20px;
+}
+/* ______________________________________________________________ HOME ______________________________________________________________ */
+/* ~~~~~~~~~~ Side Menu ~~~~~~~~~~ */
+/* ~~~~~~~~~~ Logo ~~~~~~~~~~ */
+.logo {
+  margin: 30px 0px;
+  width: 100%;
+}
+.logo img {
+  width: 50%;
+}
+.side-menu {
+  position: fixed;
+  left: 0;
+  z-index: 1;
+  /* ---- */
+  background-color: var(--toggle-nav);
+  color: var(--toggle-text);
+  width: 15vw;
+  height: 100vh;
+  text-align: center;
+  box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.8);
+  font-family: Nav;
+}
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.side-menu > ul > li {
+  list-style: none;
+  padding: 20px;
+  cursor: pointer;
+  width: 70%;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+.side-menu > ul > li:hover {
+  background-color: var(--picked-color);
+}
+.side-menu > ul > li:hover a {
+  color: white;
+}
+.side-menu ul > li > a {
+  text-decoration: none;
+  color: var(--toggle-text);
+  font-size: 23px; /* Needs to Change */
+}
+/* ~~~~~~~~~~ Color Change buttons ~~~~~~~~~~ */
+.color-palette {
+  display: flex;
+  justify-content: center;
+}
+.clr {
+  min-width: 30px;
+  min-height: 30px;
+  border-radius: 50%;
+  border: 1px solid black;
+  cursor: pointer;
+  margin: 0 3%;
+}
+#red {
+  background-color: #4322f0;
+}
+#green {
+  background-color: #9a25f7;
+}
+#blue {
+  background-color: #d72de0;
+}
+#yellow {
+  background-color: #ed3824;
+}
+
+/* ~~~~~~~~~~~ Dark / Light Mode ~~~~~~~~~~ */
+.mode-toggle {
+  width: 60px;
+  height: 30px;
+  border-radius: 25px;
+  display: inline-block;
+  background-color: var(--toggle-body);
+  margin: 20px 0px;
+  cursor: pointer;
+}
+.toggle {
+  position: relative;
+  top: -1px;
+  left: -1px;
+  width: 32px;
+  height: 32px;
+  border-radius: 25px;
+  border: 1px solid black;
+  background-color: var(--toggle-text);
+  animation-duration: 0.5s;
+  animation-name: none;
+  animation-fill-mode: forwards;
+}
+@keyframes toLight {
+  from {
+    left: -1px;
+  }
+  to {
+    left: 29px;
+  }
+}
+@keyframes toDark {
+  from {
+    left: 29px;
+  }
+  to {
+    left: -1px;
+  }
+}
+
+/* ~~~~~~~~~~ Intro Container ~~~~~~~~~~ */
+/* Content Styling */
+svg {
+  position: absolute;
+  z-index: -1;
+  opacity: 0.2;
+  width: 600px;
+  left: 45%;
+  top: 5%;
+  filter: brightness();
+}
+#Spikes {
+  animation: spikesRotate 25s linear infinite;
+  transform-origin: center;
+}
+@keyframes spikesRotate {
+  from {
+    transform: rotateZ(0turn);
+  }
+  to {
+    transform: rotateZ(1turn);
+  }
+}
+#ring {
+  animation: ringRotate 50s linear infinite;
+  transform-origin: center;
+}
+@keyframes ringRotate {
+  from {
+    transform: rotateZ(0turn);
+  }
+  to {
+    transform: rotateZ(1turn);
+  }
+}
+#face {
+  transform-origin: center;
+  animation: face 2s linear forwards;
+}
+@keyframes face {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+#homeCnt {
+  display: flex;
+  flex-direction: column;
+  gap: 300px;
+}
+.intro {
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  display: flex;
+  opacity: 0;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-name: home;
+}
+/* THis nees to be either moved down or removed */
+form:before {
+  z-index: -1;
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: inherit;
+  background-image: url(../Images/wings.png);
+  background-size: 100% 100%;
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-blend-mode: lighten;
+  mask-image: url(../Images/mask.png);
+  -webkit-mask-image: url(../Images/mask.png);
+  -webkit-mask-size: 1500% 100%;
+  -webkit-mask-position: 100%;
+  animation: svg1 1s steps(14) forwards;
+}
+@keyframes svg1 {
+  from {
+    -webkit-mask-position: 0%;
+  }
+  to {
+    -webkit-mask-position: 100%;
+  }
+}
+.intro > .left,
+.intro > .right {
+  width: 50%;
+}
+#homeCnt .title {
+  padding: 20px 50px;
+  margin-top: 15%;
+}
+
+.button {
+  padding: 15px;
+  background: var(--picked-color);
+  display: inline-block;
+  font-size: 1.5vw; /* Needs to Change */
+  border-radius: 50px;
+  border: 2px solid var(--picked-color);
+  cursor: pointer;
+  margin: 20px 50px;
+  color: var(--button-font-color);
+}
+.button:hover {
+  color: var(--toggle-text);
+  background-color: rgba(0, 0, 0, 0);
+}
+/* Container Animations */
+@keyframes slideOut {
+  from {
+    left: 15%;
+  }
+  to {
+    left: -90%;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 15%;
+  }
+}
+/* Contaienr Content Animation */
+@keyframes home {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+  from {
+    margin-left: -20px;
+  }
+  to {
+    margin-left: 0px;
+  }
+  from {
+    margin-top: -20px;
+  }
+  to {
+    margin-top: 0px;
+  }
+}
+/* ~~~~~~~~~~ Projects Preview Container ~~~~~~~~~~ */
+.project-preview {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+}
+.carousel {
+  width: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+}
+#leftButton,
+#rightButton {
+  position: absolute;
+  top: 200px;
+  z-index: 100;
+}
+#rightButton {
+  right: 0;
+}
+.carousel-items {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 250px;
+  overflow: hidden;
+  perspective: 1000px;
+}
+.carousel-item {
+  width: 250px;
+  height: 250px;
+  scale: 1;
+  position: absolute;
+  display: block;
+  background-color: white;
+  transition: all 1s linear;
+  background-size: contain;
+  background-position: center;
+  font-size: 50px;
+  color: black;
+}
+.item0 {
+  left: 1%;
+  width: 150px;
+  height: 150px;
+  margin-left: 200px;
+  z-index: 1;
+  transform: rotate3d(0, 1, 0, 0.7turn);
+}
+.item1 {
+  left: 1%;
+  /* margin-left: 25px; */
+  z-index: 2;
+  transform: rotate3d(0, 1, 0, 0.8turn);
+}
+.item2 {
+  width: 350px;
+  height: 350px;
+  left: 0%;
+  margin-left: 100px;
+  z-index: 3;
+  transform: rotate3d(0, 1, 0, 0.9turn);
+}
+/* Middle Item */
+.item3 {
+  width: 450px;
+  height: 450px;
+  left: 50%;
+  margin-left: -225px;
+  z-index: 4;
+  transform: rotate3d(0, 1, 0, 1turn);
+}
+.item4 {
+  left: 100%;
+  width: 350px;
+  height: 350px;
+  margin-left: -450px;
+  z-index: 3;
+  transform: rotate3d(0, 1, 0, 1.1turn);
+}
+.item5 {
+  left: 99%;
+  margin-left: -250px;
+  z-index: 2;
+  transform: rotate3d(0, 1, 0, 1.2turn);
+}
+.item6 {
+  left: 100%;
+  width: 150px;
+  height: 150px;
+  margin-left: -350px;
+  z-index: 1;
+  transform: rotate3d(0, 1, 0, 1.3turn);
+}
+.item7 {
+  width: 150px;
+  height: 150px;
+  left: 100%;
+  margin-left: -600px;
+  z-index: 0;
+  transform: rotate3d(0, 1, 0, 1.4turn);
+}
+.item8 {
+  width: 150px;
+  height: 150px;
+  left: 50%;
+  margin-left: -75px;
+  z-index: 0;
+  transform: rotate3d(0, 1, 0, 1.5turn);
+}
+.item9 {
+  width: 150px;
+  height: 150px;
+  left: 0%;
+  margin-left: 450px;
+  z-index: 0;
+  transform: rotate3d(0, 1, 0, 1.6turn);
+}
+#c-item-1 {
+  background-image: url(../Images/Projects/body\ -\ BW\ 2\ x500.jpg);
+}
+#c-item-2 {
+  background-image: url(../Images/Projects/body\ -\ BW\ 3\ x500.jpg);
+}
+#c-item-3 {
+  background-image: url(../Images/Projects/body\ -\ BW\ x500.jpg);
+}
+#c-item-4 {
+  background-image: url(../Images/Projects/body\ -\ colored\ 2\ x500.jpg);
+}
+#c-item-5 {
+  background-image: url(../Images/Projects/body\ -\ colored\ 3\ x500.jpg);
+}
+#c-item-6 {
+  background-image: url(../Images/Projects/body\ -\ colored\ x500.jpg);
+}
+#c-item-7 {
+  background-image: url(../Images/Projects/face-bw\ 1.png);
+}
+#c-item-8 {
+  background-image: url(../Images/Projects/face-bw\ 2.png);
+}
+#c-item-9 {
+  background-image: url(../Images/Projects/face-color\ 2.png);
+}
+#c-item-10 {
+  background-image: url(../Images/Projects/face-colored\ 1.png);
+}
+.handler {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+#play,
+#stop,
+#leftButton,
+#rightButton {
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+/* ~~~~~~~~~~ Merchandise Container ~~~~~~~~~~ */
+.merchandise-preview {
+  width: 100%;
+  display: flex;
+}
+.merch-sub-left,
+.merch-sub-right {
+  width: 50%;
+}
+.merch-sub-left {
+  background-image: url('../Images/Merchandise/background.jpg');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100%;
+  background-attachment: fixed;
+  border-radius: 25px;
+}
+.merchandise-preview img {
+  width: 100%;
+}
+.merch-heading {
+  font-size: var(--heading-font-size);
+  font-family: Nav;
+  padding: 20px 50px;
+}
+.merch-content {
+  font-size: var(--content-font-size);
+  font-family: Texts;
+}
+/* ______________________________________________________________ ABOUT _____________________________________________________________ */
+/* Title */
+.line1 {
+  width: 150px;
+  border: 3px solid var(--picked-color);
+  border-radius: 25px;
+}
+.line2 {
+  width: 120px;
+  border: 3px solid var(--picked-color);
+  border-radius: 25px;
+  margin: 5px 0;
+}
+/* Heading */
+.about-heading {
+  padding: 20px 50px;
+  margin-top: 40px;
+  font-size: var(--heading-font-size);
+}
+.specs {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 100px 0;
+  padding-bottom: 100px;
+}
+.sub-spec {
+  width: 40%;
+}
+.spec-heading {
+  font-size: var(--heading-font-size);
+  padding: 30px 0;
+}
+.spec-container {
+  width: 100%;
+  border-radius: 30px;
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.7);
+  border-left: 1px solid var(--picked-color);
+  border-bottom: 1px solid var(--picked-color);
+  display: flex;
+}
+
+.left-spec {
+  width: 20%;
+  /* border-radius: 30px; */
+  border-right: 3px solid gray;
+}
+.right-spec {
+  width: 80%;
+}
+.left-spec,
+.right-spec {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.spec-container li {
+  padding: 20px;
+  font-size: 16px;
+  height: 100px;
+  list-style: none;
+}
+.spec-container p {
+  opacity: 0.6;
+}
+.spec-title {
+  font-weight: bold;
+  font-size: 20px;
+}
+/* ______________________________________________________________ Projects _____________________________________________________________ */
+.projects-outter-container {
+  width: 100%;
+}
+.filter {
+  width: 100%;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+}
+.filter-item {
+  font-size: var(--content-font-size);
+  border-bottom: 2px solid transparent;
+  margin: 0 30px;
+  padding: 0 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.filter > .active {
+  color: var(--picked-color);
+}
+
+.filter-item:hover {
+  color: var(--picked-color);
+  /* border-bottom: 2px solid var(--picked-color); */
+}
+.projects {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.prj-item {
+  width: 300px;
+  height: 300px;
+  margin: 30px;
+  cursor: pointer;
+  transition: 0.5s;
+  box-shadow: 0px 00px 0px 0px rgba(0, 0, 0, 0.5);
+}
+.prj-item:hover {
+  transform: scale(1.15, 1.15);
+  box-shadow: 10px 20px 15px 5px rgba(0, 0, 0, 0.5);
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 3;
+  display: none;
+}
+.overlay > img {
+  height: 100%;
+  cursor: none;
+}
+.prj-content {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.prj-title {
+  font-size: var(--heading-font-size);
+  padding: 30px 70px;
+  font-family: Titles;
+}
+.prj-description {
+  font-size: var(--content-font-size);
+  padding: 30px 70px;
+  font-family: Texts;
+}
+.prj-close {
+  position: absolute;
+  width: 50px;
+  text-align: center;
+  top: 20px;
+  right: 20px;
+  font-size: 40px;
+  cursor: pointer;
+  font-family: Nav;
+  border-radius: 25px;
+  font-weight: bolder;
+}
+.prj-close:hover {
+  background-color: white;
+  color: black;
+}
+.inspect {
+  display: none;
+  width: 200px;
+  height: 200px;
+  border: 2px solid var(--picked-color);
+  border-radius: 50%;
+  position: absolute;
+  cursor: none;
+  background-image: url('');
+  background-attachment: fixed;
+  /* background-position-x: 50%;
+  background-position-y: -50%;
+  background-size: 150%; */
+}
+/* ______________________________________________________________ Merchandise _____________________________________________________________ */
+.merch-area {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  padding: 50px;
+}
+
+.item {
+  width: 100%;
+  display: flex;
+  padding: 100px;
+}
+.merch-item-left {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.prespective {
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+}
+.box {
+  width: var(--cube-width);
+  height: var(--cube-width);
+  transform-style: preserve-3d;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate3d(1, 2, 1, 0turn);
+  animation: rotate 4s linear infinite;
+}
+@keyframes rotate {
+  from {
+    transform: rotate3d(1, 2, 1, 0turn);
+  }
+  to {
+    transform: rotate3d(1, 2, 1, 1turn);
+  }
+}
+.box > div:not(.inner) {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  transition: all 0.5s linear;
+  /* background-image: url(./Images/Merchandise/present.jpg);
+  background-size: contain; */
+  background-color: rgba(94, 94, 94, 0.5);
+  border: 4px solid rgba(0, 0, 0, 0.1);
+}
+.box > div {
+  position: absolute;
+}
+.inner {
+  width: calc(var(--cube-width) / 1.1);
+  height: calc(var(--cube-width) / 1.1);
+  animation: inner 4s linear infinite;
+  background-image: url(../Images/Merchandise/tshirtNoBg.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@keyframes inner {
+  from {
+    transform: rotate3d(1, 2, 1, 0turn);
+  }
+  to {
+    transform: rotate3d(1, 2, 1, -1turn);
+  }
+}
+.box > .front {
+  transform: translateZ(calc(var(--cube-width) / var(--divider)));
+}
+.box > .left {
+  left: calc(var(--cube-width) / var(--divider) * -1);
+  transform: rotateY(-90deg);
+}
+.box > .right {
+  left: calc(var(--cube-width) / var(--divider));
+  transform: rotateY(90deg);
+}
+.box > .back {
+  transform: translateZ(calc(var(--cube-width) / var(--divider) * -1));
+}
+.box > .top {
+  top: calc(var(--cube-width) / var(--divider) * -1);
+  transform: rotateX(90deg);
+}
+.box > .bottom {
+  top: calc(var(--cube-width) / var(--divider));
+  transform: rotateX(-90deg);
+}
+.box:hover div:not(.inner) {
+  --divider: 1.2;
+  opacity: 0.2;
+}
+/* ______________________________________________________________ Contact _____________________________________________________________ */
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+form input,
+form select {
+  border-radius: 25px;
+  padding: 5px;
+  /* background-color: var(--toggle-nav); */
+  background-color: var(--toggle-body);
+  color: var(--toggle-text);
+  font-size: 16px;
+}
+form input {
+  width: 100%;
+}
+label {
+  font-family: Nav;
+  font-size: 16px;
+}
+.form-inputs {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 5px 5px 30px 5px rgba(0, 0, 0, 0.9);
+  border-radius: 25px;
+  padding: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.phone-details {
+  display: flex;
+  align-items: flex-end;
+}
+.phone-details > div:nth-child(1) {
+  width: 40%;
+}
+.phone-details > div:nth-child(2) {
+  width: 15%;
+}
+.phone-details > div:nth-child(3) {
+  width: 45%;
+}
+textarea {
+  border-radius: 25px;
+  padding: 10px;
+  font-family: Texts;
+  font-size: var(--content-font-size);
+  color: var(--toggle-text);
+  width: 100%;
+  height: 100%;
+  background-color: var(--toggle-nav);
+}
+.form-element {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+.form-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.form-button {
+  background-color: var(--toggle-text);
+  width: 150px;
+  color: var(--toggle-nav);
+  padding: 5px;
+  font-family: Nav;
+  font-size: 18px;
+  cursor: pointer;
+  filter: invert(1);
+  transition: all 0.5s linear;
+}
+.form-button:active {
+  filter: invert(0);
+}
+.incorrect {
+  border: 2px solid red;
+}
+.disabled {
+  filter: opacity(0.1);
+}
