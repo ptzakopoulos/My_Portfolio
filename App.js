@@ -69,15 +69,21 @@ const rootStyle = (variable, value) => {
 //   .then((response) => response.json())
 //   .then((json) => console.log(json[0]));
 
-switch (true) {
-  case win.width >= 1100:
-    pagesModule(pageList, buttonList, classStyle);
-    carousel();
-    break;
-  default:
-    break;
-}
-
+const screenCheck = () => {
+  console.log(win.width);
+  switch (true) {
+    case win.width >= 1000:
+      pagesModule(pageList, buttonList, classStyle);
+      if (carousel() == undefined) {
+        carousel();
+      }
+      break;
+    default:
+      break;
+  }
+};
+//Checking the screen width on load
+screenCheck();
 projectsModule(classStyle);
 colorsModule(rootStyle);
 aboutModule();

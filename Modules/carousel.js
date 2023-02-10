@@ -55,4 +55,6 @@ export default function () {
     direction = 'right';
     carousel();
   });
+
+  return autoPlay;
 }

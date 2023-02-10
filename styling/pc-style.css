@@ -109,6 +109,7 @@ body {
   width: 50%;
 }
 .side-menu {
+  min-width: 200px;
   position: fixed;
   left: 0;
   z-index: 1;
@@ -663,6 +664,7 @@ form:before {
 }
 .projects {
   width: 100%;
+  min-height: 700px;
   padding: 10px 0;
   display: flex;
   flex-wrap: wrap;
