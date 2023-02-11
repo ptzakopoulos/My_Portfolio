@@ -3,20 +3,9 @@ import pagesModule from './Modules/page-transition.js';
 import colorsModule from './Modules/color-picker.js';
 import aboutModule from './Modules/speciality.js';
 import carousel from './Modules/carousel.js';
-import countries from './Modules/phoneCodes.json' assert { type: 'json' };
+// import countries from './Modules/phoneCodes.json' assert { type: 'json' };
 
 // ~~~~~~~~~~~~~~~~~~~~ Global Variables - Library ~~~~~~~~~~~~~~~~~~~~
-
-let win = {
-  width: window.innerWidth,
-  height: window.innerHeight,
-};
-
-window.onresize = () => {
-  win.width = window.innerWidth;
-  win.height = window.innerHeight;
-  console.log(`WIndow width = ${win.width} | Window Height = ${win.height}`);
-};
 
 const home = document.getElementById('homeCnt');
 const about = document.getElementById('aboutCnt');
@@ -33,8 +22,8 @@ const projectsBt = document.getElementById('projects');
 const merchBt = document.getElementById('merchandise');
 const contactBt = document.getElementById('contact');
 const aboutAccessBt = document.getElementById('aboutBt');
-const projectsAccessBt = document.getElementById('toPrjBt');
-const merchAccessBt = document.getElementById('toMerchBt');
+const projectsAccessBt = document.getElementById('projectsBt');
+const merchAccessBt = document.getElementById('merchandiseBt');
 
 const buttonList = [
   homeBt,
@@ -69,49 +58,79 @@ const rootStyle = (variable, value) => {
 //   .then((response) => response.json())
 //   .then((json) => console.log(json[0]));
 
+let win = {
+  width: window.innerWidth,
+  height: window.innerHeight,
+};
+
 const screenCheck = () => {
-  console.log(win.width);
   switch (true) {
     case win.width >= 1000:
-      pagesModule(pageList, buttonList, classStyle);
-      if (carousel() == undefined) {
-        carousel();
-      }
+      // pagesModule(pageList, buttonList, classStyle);
       break;
     default:
+      classStyle('.container', 'width', '100%');
+      classStyle('.container', 'overflow', 'auto');
       break;
   }
 };
 //Checking the screen width on load
 screenCheck();
+
+window.addEventListener('resize', () => {
+  win.width = window.innerWidth;
+  win.height = window.innerHeight;
+  screenCheck();
+});
+pagesModule(pageList, buttonList, classStyle);
+carousel();
 projectsModule(classStyle);
 colorsModule(rootStyle);
 aboutModule();
 
 // ~~~~~~~~~~~~~~~~~~~~~ Contact Form ~~~~~~~~~~~~~~~~~~~~~
 
-const selector = document.getElementById('country');
-const phoneCode = document.getElementById('phone_code');
+const countries = [];
+const dial_code = [];
 
-for (let i = 0; i < countries.length; i++) {
-  const optionCreate = document.createElement('option');
-  selector?.appendChild(optionCreate);
-  const option = document.querySelectorAll('option')[i];
-  option.setAttribute('value', countries[i].name);
-  option.innerHTML = countries[i].name;
-}
+fetch('./Modules/phoneCodes.json')
+  .then((response) => response.json())
+  .then((data) => {
+    let counter = 0;
+    for (const object of data) {
+      countries[counter] = object.name;
+      dial_code[counter] = object.dial_code;
+      counter++;
+    }
+    passingDataToHtml();
+  });
 
-const autoFill = (e) => {
-  const countrySelected = e.target.value;
+const passingDataToHtml = () => {
+  const selector = document.getElementById('country');
+  const phoneCode = document.getElementById('phone_code');
+
+  console.log(countries.length);
 
   for (let i = 0; i < countries.length; i++) {
-    if (countries[i].name == countrySelected) {
-      phoneCode.value = countries[i].dial_code;
-    }
+    const optionCreate = document.createElement('option');
+    selector.appendChild(optionCreate);
+    const option = document.querySelectorAll('option')[i];
+    option.setAttribute('value', countries[i]);
+    option.innerHTML = countries[i];
   }
-};
 
-selector?.addEventListener('change', autoFill);
+  const autoFill = (e) => {
+    const countrySelected = e.target.value;
+    // console.log(countrySelected);
+    for (let i = 0; i < countries.length; i++) {
+      if (countries[i] == countrySelected) {
+        phoneCode.value = dial_code[i];
+      }
+    }
+  };
+
+  selector?.addEventListener('change', autoFill);
+};
 
 // __________ Input Check with regular Expressions __________
 

@@ -4,12 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styling/global-variables.css" />
     <link
       rel="stylesheet"
       href="./styling/pc-style.css"
       media="only screen and (min-width: 1000px)"
     />
-    <link rel="stylesheet" href="./styling/tablet-phone-styling.css" />
+    <link
+      rel="stylesheet"
+      href="./styling/tablet-phone-styling.css"
+      media="only screen and (max-width: 999px)"
+    />
     <title>Assignment 2</title>
   </head>
   <body>
@@ -24,11 +29,27 @@
 
       <!-- ~~~~~~~~~~ Menu Elements ~~~~~~~~~~ -->
       <ul>
-        <li id="home"><a>Home</a></li>
-        <li id="about"><a>About</a></li>
-        <li id="projects"><a>Projects</a></li>
-        <li id="merchandise"><a>Merchandise</a></li>
-        <li id="contact"><a>Contact</a></li>
+        <li id="home">
+          <a>
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+          </a>
+        </li>
+        <li id="about">
+          <a>
+            <i class="fa-solid fa-address-card"></i>
+            <span>About</span>
+          </a>
+        </li>
+        <li id="projects">
+          <a> <i class="fa-regular fa-image"></i> <span>Projects</span></a>
+        </li>
+        <li id="merchandise">
+          <a> <i class="fa-solid fa-shirt"></i><span>Merchandise</span></a>
+        </li>
+        <li id="contact">
+          <a><i class="fa-solid fa-envelope"></i><span>Contact</span></a>
+        </li>
       </ul>
 
       <!-- ~~~~~~~~~~ Dark / Light Mode ~~~~~~~~~~ -->
@@ -38,6 +59,7 @@
 
       <!-- ~~~~~~~~~~  Color Palette ~~~~~~~~~~ -->
       <div class="color-palette">
+        <div class="clr" id="picked-color"></div>
         <div class="clr" id="red"></div>
         <div class="clr" id="blue"></div>
         <div class="clr" id="yellow"></div>
@@ -349,12 +371,12 @@
           </div>
           <div class="button transition" id="aboutBt">About Me</div>
         </div>
-        <div class="right"></div>
+        <!-- <div class="right"></div> -->
       </div>
       <!-- Project Preview Section -->
       <div class="project-preview">
+        <div class="title">My Projects</div>
         <div class="carousel" id="carousel">
-          <div id="leftButton">Left</div>
           <div class="carousel-items">
             <div class="carousel-item item0" id="c-item-1"></div>
             <div class="carousel-item item1" id="c-item-2"></div>
@@ -367,13 +389,13 @@
             <div class="carousel-item item8" id="c-item-9"></div>
             <div class="carousel-item item9" id="c-item-10"></div>
           </div>
-          <div id="rightButton">Right</div>
         </div>
         <div class="handler">
-          <div id="play">Play</div>
-          <div id="stop">Stop</div>
+          <i id="leftButton" class="fa-solid fa-arrow-left"></i>
+          <div id="play"><i class="fa-solid fa-pause"></i></div>
+          <i id="rightButton" class="fa-solid fa-arrow-right"></i>
         </div>
-        <div class="button transition" id="toPrjBt">My Projects</div>
+        <div class="button transition" id="projectsBt">My Projects</div>
       </div>
 
       <!-- Merchantise Preview Section -->
@@ -394,7 +416,7 @@
             sequi commodi. Odit nisi quisquam a dolore, possimus culpa
             dignissimos?
           </div>
-          <div class="button transition" id="toMerchBt">Merchandise</div>
+          <div class="button transition" id="merchandiseBt">Merchandise</div>
         </div>
       </div>
       <!-- Home Container End -->
@@ -984,4 +1006,8 @@
     </div>
   </body>
   <script type="module" src="./App.js" defer></script>
+  <script
+    src="https://kit.fontawesome.com/5a438a33d0.js"
+    crossorigin="anonymous"
+  ></script>
 </html>

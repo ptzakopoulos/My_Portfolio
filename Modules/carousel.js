@@ -2,7 +2,13 @@ export default function () {
   const items = document.querySelectorAll('.carousel-item');
 
   const playBt = document.getElementById('play');
-  const stopBt = document.getElementById('stop');
+
+  const playIcon = document.createElement('i');
+  playIcon.classList.add('fa-solid', 'fa-play');
+  const pauseIcon = document.createElement('i');
+  pauseIcon.classList.add('fa-solid', 'fa-pause');
+
+  let playing = true;
 
   const classes = [
     'carousel-item item0',
@@ -36,12 +42,18 @@ export default function () {
   let autoPlay = setInterval(carousel, 4000);
 
   playBt.addEventListener('click', () => {
-    direction = 'left';
-    autoPlay = setInterval(carousel, 4000);
-  });
-
-  stopBt.addEventListener('click', () => {
-    clearInterval(autoPlay);
+    if (playing == false) {
+      direction = 'left';
+      autoPlay = setInterval(carousel, 4000);
+      playBt.children[0].remove();
+      playBt.appendChild(pauseIcon);
+      playing = true;
+    } else {
+      clearInterval(autoPlay);
+      playBt.children[0].remove();
+      playBt.appendChild(playIcon);
+      playing = false;
+    }
   });
 
   const leftBt = document.getElementById('leftButton');
@@ -56,5 +68,14 @@ export default function () {
     carousel();
   });
 
-  return autoPlay;
+  window.addEventListener('resize', () => {
+    if (window.innerWidth < 1000) {
+      clearInterval(autoPlay);
+      playing = false;
+      if (playBt.children[0] !== undefined) {
+        playBt.children[0].remove();
+        playBt.appendChild(playIcon);
+      }
+    }
+  });
 }

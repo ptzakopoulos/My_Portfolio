@@ -1,0 +1,125 @@
+:root {
+  /*__________ PC Styling Variables __________ */
+  /* --pages-dark-mode: rgb(42, 42, 42); */
+  --pages-dark-mode: rgb(25, 25, 25);
+  --pages-light-mode: rgb(228, 228, 228);
+  /* Side Menu */
+  --side-menu-dark-mode: rgb(17, 17, 17);
+  --side-menu-light-mode: rgb(176, 176, 176);
+  --nav-text-light-mode: rgb(42, 42, 42);
+  --nav-text-dark-mode: rgb(228, 228, 228);
+  /* Toggle Colors */
+  --toggle-body: var(--pages-dark-mode);
+  --toggle-nav: var(--side-menu-dark-mode);
+  --toggle-text: var(--nav-text-dark-mode);
+  --picked-color: #ed3824;
+  /* Font-sizes */
+  --title-font-size: 45px; /* *** */
+  --heading-font-size: 35px; /* *** */
+  --content-font-size: 25px; /* *** */
+  --nav-font-size: 18px;
+  /* Buttom */
+  --button-font-color: rgb(228, 228, 228);
+  /* Cube Dims */
+  --cube-width: 200px;
+  --divider: 2;
+  /*__________ Tablet/Phone Styling Variables __________ */
+  /* Font-sizes */
+  --phone-title-font-size: 25px;
+  --phone-content-font-size: 18px;
+  --phone-nav-icons-font-size: 23px;
+  /* Paddings */
+  --phone-sub-container-padding: 20px;
+}
+/* ~~~~~~~~~~ Color Pickers ~~~~~~~~~~ */
+#picked-color {
+  background-color: var(--picked-color);
+}
+#red {
+  background-color: #4322f0;
+}
+#green {
+  background-color: #9a25f7;
+}
+#blue {
+  background-color: #d72de0;
+}
+#yellow {
+  background-color: #ed3824;
+}
+/* ~~~~~~~~~~ Font Families ~~~~~~~~~~ */
+@font-face {
+  font-family: Titles;
+  src: url(../Fonts/Outfit/static/Outfit-Bold.ttf);
+}
+@font-face {
+  font-family: Texts;
+  src: url(../Fonts/Outfit/static/Outfit-Thin.ttf);
+}
+@font-face {
+  font-family: Nav;
+  src: url(../Fonts/Outfit/static/Outfit-Regular.ttf);
+}
+.highlight,
+.side-menu,
+.merch-heading,
+.prj-close,
+label,
+.form-button {
+  font-family: Nav;
+}
+.title,
+.prj-title {
+  font-family: Titles;
+}
+.container,
+.merch-content,
+.prj-description,
+textarea {
+  font-family: Texts;
+}
+.button {
+  padding: 10px;
+  background: var(--picked-color);
+  display: inline-block;
+  font-size: var(--nav-font-size);
+  border-radius: 50px;
+  border: 2px solid var(--picked-color);
+  cursor: pointer;
+  margin: 20px 50px;
+  color: var(--button-font-color);
+}
+.container {
+  color: var(--toggle-text);
+}
+/* Carousel Items Background */
+#c-item-1 {
+  background-image: url(../Images/Projects/body\ -\ BW\ 2\ x500.jpg);
+}
+#c-item-2 {
+  background-image: url(../Images/Projects/body\ -\ BW\ 3\ x500.jpg);
+}
+#c-item-3 {
+  background-image: url(../Images/Projects/body\ -\ BW\ x500.jpg);
+}
+#c-item-4 {
+  background-image: url(../Images/Projects/body\ -\ colored\ 2\ x500.jpg);
+}
+#c-item-5 {
+  background-image: url(../Images/Projects/body\ -\ colored\ 3\ x500.jpg);
+}
+#c-item-6 {
+  background-image: url(../Images/Projects/body\ -\ colored\ x500.jpg);
+}
+#c-item-7 {
+  background-image: url(../Images/Projects/face-bw\ 1.png);
+}
+#c-item-8 {
+  background-image: url(../Images/Projects/face-bw\ 2.png);
+}
+#c-item-9 {
+  background-image: url(../Images/Projects/face-color\ 2.png);
+}
+#c-item-10 {
+  background-image: url(../Images/Projects/face-colored\ 1.png);
+}
