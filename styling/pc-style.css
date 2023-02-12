@@ -11,13 +11,6 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-.transition {
-  transition: 0.7s;
-}
-.highlight {
-  color: var(--picked-color);
-  font-weight: bold;
-}
 .title {
   width: 100%;
   font-size: var(--title-font-size);
@@ -475,14 +468,7 @@ form:before {
 .merchandise-preview img {
   width: 100%;
 }
-.merch-heading {
-  font-size: var(--heading-font-size);
 
-  padding: 20px 50px;
-}
-.merch-content {
-  font-size: var(--content-font-size);
-}
 /* ______________________________________________________________ ABOUT _____________________________________________________________ */
 /* Title */
 .line1 {
@@ -570,10 +556,6 @@ form:before {
   font-weight: bold;
   cursor: pointer;
 }
-.filter > .active {
-  color: var(--picked-color);
-}
-
 .filter-item:hover {
   color: var(--picked-color);
   /* border-bottom: 2px solid var(--picked-color); */

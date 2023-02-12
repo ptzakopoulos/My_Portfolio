@@ -28,8 +28,17 @@
   --phone-title-font-size: 25px;
   --phone-content-font-size: 18px;
   --phone-nav-icons-font-size: 23px;
+  --phone-spec-heading-font-size: 20px;
   /* Paddings */
-  --phone-sub-container-padding: 20px;
+  --phone-sub-container-padding: 40px;
+  /* Fle Gap */
+  --phone-flex-gap: 15px;
+  /* Read More container background */
+  --read-more-background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.2) 1%,
+    rgba(255, 255, 255, 0) 20%
+  );
 }
 /* ~~~~~~~~~~ Color Pickers ~~~~~~~~~~ */
 #picked-color {
@@ -122,4 +131,14 @@ textarea {
 }
 #c-item-10 {
   background-image: url(../Images/Projects/face-colored\ 1.png);
+}
+.transition {
+  transition: 0.7s;
+}
+.highlight {
+  color: var(--picked-color);
+  font-weight: bold;
+}
+.filter > .active {
+  color: var(--picked-color);
 }

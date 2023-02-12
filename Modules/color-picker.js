@@ -44,7 +44,6 @@ export default function (rootStyle) {
       rootStyle('--picked-color', pickedColor);
 
       //T-shirt Color Change
-      console.log(merchImage?.attributes[0]);
       merchImage.attributes[0].value = `./Images/Merchandise/${this.id}.png`;
       // ./Images/Merchandise/${this.id}.png`
     }

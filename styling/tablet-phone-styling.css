@@ -15,19 +15,35 @@ a {
 }
 .title {
   font-size: var(--phone-title-font-size);
+  padding: 20px;
 }
 .content {
   font-size: var(--phone-content-font-size);
+  padding: 20px;
+}
+.button {
+  padding: 2px 5px;
 }
 .container {
   width: 100%;
   height: 100%;
   position: absolute;
+  padding-bottom: 50px;
   z-index: -1;
   display: none;
   background-color: var(--pages-dark-mode);
+  overflow: auto;
 }
 svg {
+  display: none;
+}
+.footer {
+  width: 100%;
+  border: 1px solid white;
+  padding: 20px;
+  text-align: center;
+}
+.overlay {
   display: none;
 }
 /* ~~~~~~~~~~~~~~~~~~~ Nav bar + Logo ~~~~~~~~~~~~~~~~~~~ */
@@ -99,7 +115,7 @@ svg {
   align-items: center;
 }
 .intro {
-  padding: var(--phone-sub-container-padding);
+  /* padding: var(--phone-sub-container-padding); */
   text-align: center;
 }
 .intro > .left {
@@ -107,7 +123,7 @@ svg {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  /* gap: var(--phone-flex-gap); */
 }
 /* Project Preview container */
 .project-preview {
@@ -115,6 +131,8 @@ svg {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 30px;
+  padding: 100px 0px;
 }
 .carousel-items {
   width: 100%;
@@ -156,7 +174,183 @@ svg {
 .item9 {
   width: 0px;
 }
+.handler {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+/* Merchandise Preview container */
+.merchandise-preview {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+.merchandise-preview > .merch-sub-left {
+  display: none;
+}
+.merch-sub-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* gap: var(--phone-flex-gap); */
+}
+/* ~~~~~~~~~~~~~~~~~~~ About Container Classes ~~~~~~~~~~~~~~~~~~~ */
+.about-heading {
+  padding: 20px;
+}
+
+.closed {
+  height: 100px;
+  overflow: hidden;
+  background: var(--read-more-background);
+}
+.specs {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.spec-heading {
+  font-size: var(--phone-spec-heading-font-size);
+  font-weight: bold;
+}
+.spec-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
+  box-shadow: 0px 2px 5px 0px var(--picked-color);
+}
+.spec-container > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 15px;
+}
+.left-spec {
+  padding: 0px 10px;
+  border-right: 2px solid rgba(255, 255, 255, 0.2);
+}
+.spec-title {
+  font-weight: bold;
+}
+.right-spec > li:not(:last-child) {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
 /* ~~~~~~~~~~~~~~~~~~~ Projects Container Classes ~~~~~~~~~~~~~~~~~~~ */
+.projects-outter-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+.filter {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+.projects {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+.projects > img {
+  width: 100px;
+}
 .overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  flex-direction: column;
+  justify-content: start;
+  align-content: center;
+
+  z-index: 10;
+}
+.overlay > * {
+  width: 100%;
+}
+.inspect {
+  display: none;
+}
+.prj-content {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.prj-close {
+  align-self: center;
+  border: 1px solid white;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  border-radius: 9px;
+}
+.prj-close::after {
+  content: 'Close';
+}
+/* ~~~~~~~~~~~~~~~~~~~ Merchandise Container Classes ~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~ Contact Container Classes ~~~~~~~~~~~~~~~~~~~ */
+form {
+  width: 100%;
+  padding-bottom: 100px;
+}
+form input {
+  padding: 10px;
+  border-radius: 50px;
+}
+#phone_code {
+  width: 100px;
+}
+.form-inputs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.form-element {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.phone-details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+form textarea {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 150px;
+  max-height: 150px;
+  border-radius: 25px;
+  padding: 10px;
+}
+.form-buttons {
+  width: 100%;
+  display: flex;
+}
+.form-buttons input {
+  width: 50%;
+  border-radius: 0;
+}
+
+/* Prosorines allages */
+.footer {
   display: none;
 }

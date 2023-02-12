@@ -108,6 +108,7 @@ export default function (pageList, buttonList, classStyle) {
     if (window.innerWidth >= 1000) {
       pcPageTransition();
     } else {
+      classStyle('.container', 'width', '100%');
       mobilePageTransition();
     }
   };

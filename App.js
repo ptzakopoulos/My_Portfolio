@@ -54,34 +54,6 @@ const rootStyle = (variable, value) => {
 
 // ~~~~~~~~~~~~~~~~~~~~~ Calling Modules ~~~~~~~~~~~~~~~~~~~~~
 
-// fetch('./Modules/phoneCodes.json')
-//   .then((response) => response.json())
-//   .then((json) => console.log(json[0]));
-
-let win = {
-  width: window.innerWidth,
-  height: window.innerHeight,
-};
-
-const screenCheck = () => {
-  switch (true) {
-    case win.width >= 1000:
-      // pagesModule(pageList, buttonList, classStyle);
-      break;
-    default:
-      classStyle('.container', 'width', '100%');
-      classStyle('.container', 'overflow', 'auto');
-      break;
-  }
-};
-//Checking the screen width on load
-screenCheck();
-
-window.addEventListener('resize', () => {
-  win.width = window.innerWidth;
-  win.height = window.innerHeight;
-  screenCheck();
-});
 pagesModule(pageList, buttonList, classStyle);
 carousel();
 projectsModule(classStyle);
