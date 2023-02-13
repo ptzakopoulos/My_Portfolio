@@ -39,6 +39,9 @@
     rgba(255, 255, 255, 0.2) 1%,
     rgba(255, 255, 255, 0) 20%
   );
+  /* carousel Blur filer */
+  --carousel-mid-item-blur: blur(2px);
+  --carousel-back-item-blur: blur(3px);
 }
 /* ~~~~~~~~~~ Color Pickers ~~~~~~~~~~ */
 #picked-color {

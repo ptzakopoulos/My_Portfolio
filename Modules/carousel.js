@@ -1,4 +1,4 @@
-export default function () {
+export default function (classStyle) {
   const items = document.querySelectorAll('.carousel-item');
 
   const playBt = document.getElementById('play');

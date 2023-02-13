@@ -4,7 +4,7 @@ export default function (pageList, buttonList, classStyle) {
   const pcPageTransition = () => {
     // ~~~~~~~~~~ Event Listeners Handler ~~~~~~~~~~
     buttonList.forEach((e) => {
-      return e.addEventListener('click', openTab);
+      e.addEventListener('click', openTab);
     });
 
     // ~~~~~~~~~~ New / Old Element Declaration ~~~~~~~~~~
@@ -15,7 +15,7 @@ export default function (pageList, buttonList, classStyle) {
 
     // ~~~~~~~~~~ Setting Containers' width to 0 ~~~~~~~~~~
     pageList.forEach((e) => {
-      return (e.style.width = '0');
+      e.style.width = '0';
     });
 
     // ~~~~~~~~~~ Setting Home's Width to 85% | 100% depending on the device ~~~~~~~~~~
@@ -67,7 +67,7 @@ export default function (pageList, buttonList, classStyle) {
           classStyle(`#${id}`, 'overflow', 'auto');
 
           buttonList.forEach((e) => {
-            return e.addEventListener('click', openTab);
+            e.addEventListener('click', openTab);
           });
         }, 1000);
       }
@@ -88,6 +88,11 @@ export default function (pageList, buttonList, classStyle) {
         clickedElementId = element.target.parentNode.parentNode.id;
       }
 
+      buttonList.forEach((e) => {
+        classStyle(`#${e.id}`, 'color', 'var(--nax-text-dark-mode)');
+      });
+      classStyle(`#${clickedElementId}`, 'color', 'var(--picked-color)');
+
       id = `${clickedElementId.toLowerCase()}Cnt`;
       pageList.forEach((e) => {
         classStyle(`#${e.id}`, 'display', 'none');
@@ -98,7 +103,7 @@ export default function (pageList, buttonList, classStyle) {
     };
 
     buttonList.forEach((e) => {
-      return e.addEventListener('click', pageSwap);
+      e.addEventListener('click', pageSwap);
     });
   };
 

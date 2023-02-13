@@ -14,10 +14,12 @@ a {
   text-decoration: none;
 }
 .title {
+  color: var(--nav-text-dark-mode);
   font-size: var(--phone-title-font-size);
   padding: 20px;
 }
 .content {
+  color: var(--nav-text-dark-mode);
   font-size: var(--phone-content-font-size);
   padding: 20px;
 }
@@ -49,13 +51,13 @@ svg {
 /* ~~~~~~~~~~~~~~~~~~~ Nav bar + Logo ~~~~~~~~~~~~~~~~~~~ */
 .side-menu {
   width: 100%;
-  position: absolute;
-  z-index: 2;
+  position: fixed;
+  z-index: 9;
   bottom: 0;
   left: 0;
   display: flex;
-  background-color: var(--toggle-nav);
-  color: var(--toggle-text);
+  background-color: var(--side-menu-dark-mode);
+  color: var(--nav-text-dark-mode);
   padding: 10px;
 }
 /* _____ Navigation Links _____ */
@@ -102,7 +104,23 @@ svg {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: red;
+  z-index: 1;
+}
+.color-palette > #picked-color {
+  z-index: 2;
+  background-color: var(--picked-color);
+}
+.red-open {
+  top: -40px;
+}
+.blue-open {
+  top: -80px;
+}
+.yellow-open {
+  top: -120px;
+}
+.green-open {
+  top: -160px;
 }
 /* ~~~~~~~~~~~~~~~~~~~ Home Container Classes ~~~~~~~~~~~~~~~~~~~ */
 #homeCnt {
@@ -135,50 +153,76 @@ svg {
   padding: 100px 0px;
 }
 .carousel-items {
-  width: 100%;
+  width: 100vw;
+  height: 200px;
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: relative;
 }
 .carousel-item {
   width: 100px;
   height: 100px;
   background-size: contain;
+  background-repeat: no-repeat;
   transition: all 1s linear;
+  position: absolute;
+  align-self: center;
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
 }
 .item0 {
-  width: 0px;
+  z-index: 10;
+  transform: translate(-50px, 0px);
 }
 .item1 {
-  width: 0px;
+  z-index: 9;
+  transform: translate(50px, 0px);
 }
 .item2 {
-  width: 0px;
+  z-index: 8;
+  transform: translate(50px, 100px);
 }
 .item3 {
-  width: 100px;
+  z-index: 7;
+  transform: translate(-50px, 100px);
 }
 .item4 {
-  width: 100px;
+  z-index: 6;
+  transform: translate(-100px, 25px) scale(0.7);
+  filter: var(--carousel-mid-item-blur);
 }
 .item5 {
-  width: 100px;
+  z-index: 5;
+  transform: translate(100px, 25px) scale(0.7);
+  filter: var(--carousel-mid-item-blur);
 }
 .item6 {
-  width: 100px;
+  z-index: 4;
+  transform: translate(100px, 75px) scale(0.7);
+  filter: var(--carousel-mid-item-blur);
 }
 .item7 {
-  width: 0px;
+  z-index: 3;
+  transform: translate(-100px, 75px) scale(0.7);
+  filter: var(--carousel-mid-item-blur);
 }
 .item8 {
-  width: 0px;
+  z-index: 2;
+  transform: translate(-150px, 50px) scale(0.5);
+  filter: var(--carousel-back-item-blur);
 }
 .item9 {
-  width: 0px;
+  z-index: 1;
+  transform: translate(150px, 50px) scale(0.5);
+  filter: var(--carousel-back-item-blur);
 }
+
 .handler {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
+  color: var(--nav-text-dark-mode);
 }
 /* Merchandise Preview container */
 .merchandise-preview {
@@ -276,7 +320,6 @@ svg {
   flex-direction: column;
   justify-content: start;
   align-content: center;
-
   z-index: 10;
 }
 .overlay > * {

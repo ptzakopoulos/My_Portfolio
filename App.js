@@ -55,7 +55,7 @@ const rootStyle = (variable, value) => {
 // ~~~~~~~~~~~~~~~~~~~~~ Calling Modules ~~~~~~~~~~~~~~~~~~~~~
 
 pagesModule(pageList, buttonList, classStyle);
-carousel();
+carousel(classStyle);
 projectsModule(classStyle);
 colorsModule(rootStyle);
 aboutModule();
@@ -80,8 +80,6 @@ fetch('./Modules/phoneCodes.json')
 const passingDataToHtml = () => {
   const selector = document.getElementById('country');
   const phoneCode = document.getElementById('phone_code');
-
-  console.log(countries.length);
 
   for (let i = 0; i < countries.length; i++) {
     const optionCreate = document.createElement('option');
@@ -179,3 +177,15 @@ sendButton.addEventListener('click', (e) => {
     e.preventDefault;
   }
 });
+
+// __________ About Content Toggle on click __________
+
+const aboutContentToggle = () => {
+  const aboutContentContainer = document.getElementById('about-content');
+
+  aboutContentContainer.addEventListener('click', () => {
+    aboutContentContainer.classList.toggle('closed');
+  });
+};
+
+aboutContentToggle();

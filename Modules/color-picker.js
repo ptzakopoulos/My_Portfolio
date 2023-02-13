@@ -1,4 +1,8 @@
 export default function (rootStyle) {
+  let modeValue = 0;
+  let open = false;
+  let pickedColor;
+
   const colorPickerForPc = () => {
     // ~~~~~~~~~~ Root Colors ~~~~~~~~~~
     const rootColors = {
@@ -24,33 +28,47 @@ export default function (rootStyle) {
     const clr2 = document.getElementById('blue');
     const clr3 = document.getElementById('yellow');
     const clr4 = document.getElementById('green');
+    const currentColor = document.getElementById('picked-color');
 
-    const colors = [clr1, clr2, clr3, clr4];
+    const colors = [clr1, clr2, clr3, clr4, currentColor];
 
-    const merchImage = document.getElementById('merch-img');
-
-    clr3.style.transform = 'scale(1.5, 1.5)';
+    window.innerWidth >= 1000
+      ? (clr3.style.transform = 'scale(1.5)')
+      : (clr3.style.transform = 'scale(1)');
 
     // ~~~~~~~~~~~~~~~~ Theme Color Picker ~~~~~~~~~~~~~~~~
-    function colorPicker() {
+    const colorPicker = (e) => {
       // Theme Colors
-      for (let i = 0; i < colors.length; i++) {
-        colors[i].style.transform = 'scale(1,1)';
+      if (window.innerWidth >= 1000) {
+        for (let i = 0; i < colors.length; i++) {
+          colors[i].style.transform = 'scale(1)';
+        }
+        e.target.style.transform = 'scale(1.5)';
+
+        pickedColor = window.getComputedStyle(e.target).backgroundColor;
+
+        rootStyle('--picked-color', pickedColor);
+      } else {
+        if (open) {
+          pickedColor = window.getComputedStyle(e.target).backgroundColor;
+          rootStyle('--picked-color', pickedColor);
+          colors.forEach((colorElement) => {
+            colorElement.classList.remove(`${colorElement.id}-open`);
+          });
+          open = false;
+        } else {
+          colors.forEach((colorElement) => {
+            colorElement.style.transform = 'scale(1)';
+            colorElement.classList.add(`${colorElement.id}-open`);
+          });
+          open = true;
+        }
       }
-      this.style.transform = 'scale(1.5,1.5)';
-
-      let pickedColor = window.getComputedStyle(this).backgroundColor;
-
-      rootStyle('--picked-color', pickedColor);
-
-      //T-shirt Color Change
-      merchImage.attributes[0].value = `./Images/Merchandise/${this.id}.png`;
-      // ./Images/Merchandise/${this.id}.png`
-    }
+    };
     //Color Picker Function End
 
-    colors.forEach(function (e) {
-      return e.addEventListener('click', colorPicker);
+    colors.forEach((e) => {
+      e.addEventListener('click', colorPicker);
     });
 
     // Dark / Light Mode toggle
@@ -58,10 +76,8 @@ export default function (rootStyle) {
     const themeMode = document.getElementById('theme');
     const toggleBt = document.getElementById('toggle');
 
-    let modeValue = 0;
-
     // ~~~~~~~~~~~~~~~~ Dark / Light Mode ~~~~~~~~~~~~~~~~
-    function toggleMode() {
+    const toggleMode = () => {
       if (modeValue == 0) {
         toggleBt.style.animationName = 'toLight';
 
@@ -80,27 +96,12 @@ export default function (rootStyle) {
 
         modeValue = 0;
       }
-    }
+    };
 
     themeMode.addEventListener('click', toggleMode);
 
-    const clrCollection = [clr1, clr2, clr3, clr4];
-    return clrCollection;
+    return colors;
   };
 
-  const windowWidthCheck = () => {
-    if (window.innerWidth >= 1000) {
-      colorPickerForPc();
-    } else {
-      colorPickerForPc().forEach((e) => {
-        e.style.transform = 'scale(1)';
-      });
-    }
-  };
-
-  windowWidthCheck();
-
-  window.onresize = () => {
-    windowWidthCheck();
-  };
+  colorPickerForPc();
 }

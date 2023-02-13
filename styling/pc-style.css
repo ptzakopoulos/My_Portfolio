@@ -241,20 +241,8 @@ form:before {
   background-size: 100%;
   background-repeat: no-repeat;
   background-blend-mode: lighten;
-  mask-image: url(../Images/mask.png);
-  -webkit-mask-image: url(../Images/mask.png);
-  -webkit-mask-size: 1500% 100%;
-  -webkit-mask-position: 100%;
-  animation: svg1 1s steps(14) forwards;
 }
-@keyframes svg1 {
-  from {
-    -webkit-mask-position: 0%;
-  }
-  to {
-    -webkit-mask-position: 100%;
-  }
-}
+
 .intro > .left,
 .intro > .right {
   width: 50%;
