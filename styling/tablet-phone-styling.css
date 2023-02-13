@@ -392,6 +392,10 @@ form textarea {
   width: 50%;
   border-radius: 0;
 }
+#phone_code {
+  background-color: transparent;
+  color: white;
+}
 
 /* Prosorines allages */
 .footer {
