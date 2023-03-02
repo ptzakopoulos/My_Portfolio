@@ -1,6 +1,30 @@
 export default function (pageList, buttonList, classStyle) {
-  let id;
+  //Function responsible for the animation after transition
+  const animationHandler = (id) => {
+    switch (true) {
+      case id == 'home':
+        break;
+      case id == 'about':
+        classStyle('.about-subject', 'animation-name', 'AboutQuestionIntro');
+        classStyle('#about-content p', 'animation-name', 'AboutAnswerIntro');
+        break;
+      case id == 'projects':
+        const projectImages = document.querySelectorAll('.prj-item');
+        projectImages.forEach((e, index) => {
+          setTimeout(() => {
+            e.style.transform = 'scale(1)';
+          }, 200 * index);
+        });
+        break;
+      case id == 'merchandise':
+        break;
+      case id == 'contact':
+        break;
+    }
+  };
 
+  let id;
+  // Function responsible for he page transition when on PC
   const pcPageTransition = () => {
     // ~~~~~~~~~~ Event Listeners Handler ~~~~~~~~~~
     buttonList.forEach((e) => {
@@ -33,6 +57,8 @@ export default function (pageList, buttonList, classStyle) {
     function openTab() {
       //Getting the id of clicked Button or Nav Button and split it in order to get the key word
       const clickedElementId = this.id.split('Bt')[0];
+
+      animationHandler(clickedElementId);
 
       //id is getting its value by the key words that have gotten previousely and creates the is of focused container
       id = `${clickedElementId.toLowerCase()}Cnt`;

@@ -8,7 +8,10 @@ export default function (classStyle) {
   const pauseIcon = document.createElement('i');
   pauseIcon.classList.add('fa-solid', 'fa-pause');
 
+  const speedSelector = document.getElementById('carouselSpeed');
+
   let playing = true;
+  let carouselSpeed = 4000;
 
   const classes = [
     'carousel-item item0',
@@ -39,12 +42,19 @@ export default function (classStyle) {
     direction = 'left';
   };
 
-  let autoPlay = setInterval(carousel, 4000);
+  let autoPlay = setInterval(carousel, carouselSpeed);
+
+  //Carousel Speed Handler
+  speedSelector.addEventListener('change', (e) => {
+    carouselSpeed = e.target.value;
+    clearInterval(autoPlay);
+    autoPlay = setInterval(carousel, carouselSpeed);
+  });
 
   playBt.addEventListener('click', () => {
     if (playing == false) {
       direction = 'left';
-      autoPlay = setInterval(carousel, 4000);
+      autoPlay = setInterval(carousel, carouselSpeed);
       playBt.children[0].remove();
       playBt.appendChild(pauseIcon);
       playing = true;

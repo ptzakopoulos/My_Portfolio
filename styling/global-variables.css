@@ -2,7 +2,7 @@
   /*__________ PC Styling Variables __________ */
   /* --pages-dark-mode: rgb(42, 42, 42); */
   --pages-dark-mode: rgb(25, 25, 25);
-  --pages-light-mode: rgb(228, 228, 228);
+  --pages-light-mode: rgb(255, 255, 255);
   /* Side Menu */
   --side-menu-dark-mode: rgb(17, 17, 17);
   --side-menu-light-mode: rgb(176, 176, 176);
@@ -43,6 +43,19 @@
   --carousel-mid-item-blur: blur(2px);
   --carousel-back-item-blur: blur(3px);
 }
+/* ~~~~~~~~~~ Title Lines ~~~~~~~~~~ */
+
+.line1 {
+  width: 150px;
+  border: 3px solid var(--picked-color);
+  border-radius: 25px;
+}
+.line2 {
+  width: 120px;
+  border: 3px solid var(--picked-color);
+  border-radius: 25px;
+  margin: 5px 0;
+}
 /* ~~~~~~~~~~ Color Pickers ~~~~~~~~~~ */
 #picked-color {
   background-color: var(--picked-color);
@@ -66,7 +79,7 @@
 }
 @font-face {
   font-family: Texts;
-  src: url(../Fonts/Outfit/static/Outfit-Thin.ttf);
+  src: url(../Fonts/Outfit/static/Outfit-Light.ttf);
 }
 @font-face {
   font-family: Nav;
@@ -144,4 +157,17 @@ textarea {
 }
 .filter > .active {
   color: var(--picked-color);
+}
+/* Carousel Speed Handler Style */
+.carousel-speed-container > p {
+  text-align: center;
+  font-size: 18px;
+}
+#carouselSpeed {
+  width: 200px;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 25px;
+  background-color: var(--toggle-text);
+  color: var(--toggle-body);
 }

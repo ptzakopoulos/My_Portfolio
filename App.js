@@ -1,8 +1,8 @@
-import projectsModule from './Modules/projects.js';
-import pagesModule from './Modules/page-transition.js';
-import colorsModule from './Modules/color-picker.js';
-import aboutModule from './Modules/speciality.js';
-import carousel from './Modules/carousel.js';
+import projectsModule from './Components/projects.js';
+import pagesModule from './Components/page-transition.js';
+import colorsModule from './Components/color-picker.js';
+import aboutModule from './Components/speciality.js';
+import carousel from './Components/carousel.js';
 // import countries from './Modules/phoneCodes.json' assert { type: 'json' };
 
 // ~~~~~~~~~~~~~~~~~~~~ Global Variables - Library ~~~~~~~~~~~~~~~~~~~~
@@ -65,7 +65,7 @@ aboutModule();
 const countries = [];
 const dial_code = [];
 
-fetch('./Modules/phoneCodes.json')
+fetch('./Components/phoneCodes.json')
   .then((response) => response.json())
   .then((data) => {
     let counter = 0;
@@ -84,7 +84,7 @@ const passingDataToHtml = () => {
   for (let i = 0; i < countries.length; i++) {
     const optionCreate = document.createElement('option');
     selector.appendChild(optionCreate);
-    const option = document.querySelectorAll('option')[i];
+    const option = document.querySelectorAll('#country option')[i];
     option.setAttribute('value', countries[i]);
     option.innerHTML = countries[i];
   }
@@ -130,6 +130,21 @@ const formValidation = (input) => {
     //Email validation
     case input.target.name == 'email':
       if (regs.email.every((e) => e.test(input.target.value) == false)) {
+        input.target.style.border = '2px solid red';
+        input.target.attributes[0].value = 'incorrect';
+        sendButton.setAttribute('disabled', 'disabled');
+        sendButton.classList.add('disabled');
+      } else {
+        input.target.style.border = 'none';
+        input.target.attributes[0].value = 'correct';
+      }
+      break;
+    //Email validation
+    case input.target.name == 'emailConfirm':
+      if (
+        input.target.value != document.getElementById('email').value ||
+        input.target.value.length <= 0
+      ) {
         input.target.style.border = '2px solid red';
         input.target.attributes[0].value = 'incorrect';
         sendButton.setAttribute('disabled', 'disabled');
@@ -189,3 +204,22 @@ const aboutContentToggle = () => {
 };
 
 aboutContentToggle();
+
+// ~~~~~~~~~~~~~~~~~~~~ Footer Append ~~~~~~~~~~~~~~~~~~~~
+
+const footerContainers = [...document.getElementsByClassName('footer')];
+const footerContent = `
+<div class="footer-icons">
+<i class="fa-brands fa-pinterest-p transition"></i>
+<i class="fa-brands fa-instagram transition"></i>
+<i class="fa-brands fa-facebook-f transition"></i>
+<i class="fa-brands fa-linkedin-in transition"></i>
+<i class="fa-regular fa-envelope transition"></i>
+<i class="fa-solid fa-phone transition"></i>
+</div>
+<div class="copyrights">
+<i> Copyright © 2023</i>
+</div>`;
+footerContainers.forEach((e) => {
+  e.innerHTML = footerContent;
+});

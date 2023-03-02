@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./logo.ico" />
     <link rel="stylesheet" href="./styling/global-variables.css" />
     <link
       rel="stylesheet"
@@ -15,7 +16,7 @@
       href="./styling/tablet-phone-styling.css"
       media="only screen and (max-width: 999px)"
     />
-    <title>Assignment 2</title>
+    <title>Markus Sukram | Portfolio</title>
   </head>
   <body>
     <!-- ~~~~~~~~~~ Side Menu ~~~~~~~~~~ -->
@@ -23,7 +24,10 @@
       <!-- ~~~~~~~~~~ Logo ~~~~~~~~~~ -->
       <div class="logo">
         <a href="index.html">
-          <img src="./Images/Logo.png" alt="Logo" />
+          <img
+            src="./Images/Logo.png"
+            alt="Logo Image. An outlined circle with an M and an S in the middle"
+          />
         </a>
       </div>
 
@@ -73,8 +77,7 @@
       <div class="intro">
         <?xml version="1.0" encoding="UTF-8"?>
         <svg
-          id="_Ã‘Ã«Ã®Ã©_1"
-          data-name="Ã‘Ã«Ã®Ã© 1"
+          data-name="svg-image"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 232.75 235.7"
         >
@@ -360,22 +363,22 @@
           </g>
         </svg>
         <div class="left">
-          <div class="title">
+          <h1 class="title">
             Hello, I'm
             <span class="highlight transition">Markus Sukram.</span>
-          </div>
-          <div class="content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
-            recusandae velit, illo dolorem veritatis accusantium tempora
-            blanditiis omnis molestiae vitae.
-          </div>
+          </h1>
+          <p class="content">
+            If people are honest with themselves when they choose a tattoo, the
+            art will represent them better than anything that will ever come out
+            of their mouth.
+          </p>
           <div class="button transition" id="aboutBt">About Me</div>
         </div>
         <!-- <div class="right"></div> -->
       </div>
       <!-- Project Preview Section -->
       <div class="project-preview">
-        <div class="title">My Projects</div>
+        <h1 class="title">My Projects</h1>
         <div class="carousel" id="carousel">
           <div class="carousel-items">
             <div class="carousel-item item0" id="c-item-1"></div>
@@ -395,32 +398,39 @@
           <div id="play"><i class="fa-solid fa-pause"></i></div>
           <i id="rightButton" class="fa-solid fa-arrow-right"></i>
         </div>
+        <div class="carousel-speed-container">
+          <p>Carousel Speed</p>
+          <select name="carousel-speed" id="carouselSpeed">
+            <option value="1000">1s</option>
+            <option value="2000">2s</option>
+            <option value="3000">3s</option>
+            <option value="4000">4s</option>
+            <option value="5000">5s</option>
+            <option value="100">Make some mess</option>
+          </select>
+        </div>
+
         <div class="button transition" id="projectsBt">My Projects</div>
       </div>
 
       <!-- Merchantise Preview Section -->
       <div class="merchandise-preview">
         <div class="merch-sub-left">
-          <img
-            src="./Images/Merchandise/yellow.png"
-            alt="Merchandise preview Image"
-            id="merch-img"
-          />
+          <img src="./Images/Merchandise/merchandise_preview2.png" alt="" />
         </div>
         <div class="merch-sub-right">
-          <div class="title">Merchandise</div>
-          <div class="content">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam
-            odio facilis corrupti numquam autem, dolorum, quam voluptate eos id
-            magni earum mollitia, animi eius quas porro sit sapiente omnis esse
-            sequi commodi. Odit nisi quisquam a dolore, possimus culpa
-            dignissimos?
-          </div>
+          <h1 class="title">Merchandise</h1>
+          <p class="content">
+            If you are not sure about having something permanent on your body,
+            you can always have the shape you desire on you in alternative ways.
+            <br />
+            Check out the goodiezZz.
+          </p>
           <div class="button transition" id="merchandiseBt">Merchandise</div>
         </div>
       </div>
       <!-- Home Container End -->
-      <div class="footer">This is a footer</div>
+      <div class="footer"></div>
     </div>
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ About Container ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -430,28 +440,39 @@
         <div class="line1 transition"></div>
         <div class="line2 transition"></div>
       </div>
-      <div class="about-heading">
+      <h1 class="about-heading">
         My name is Markus Sukram, a
         <span class="highlight transition" id="speciality">Tatto Artist</span>
-      </div>
+      </h1>
       <div class="content closed" id="about-content">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias impedit
-        fugit sed. Iusto aperiam at ipsum veritatis, laudantium labore
-        praesentium voluptatem atque excepturi, sequi harum! Fugit doloremque
-        veritatis nulla excepturi quibusdam sunt fuga repellat aliquam
-        voluptatem modi voluptas itaque id iste quod nemo, voluptate non
-        possimus fugiat ullam? Nulla fugit numquam deleniti. Itaque autem
-        expedita nesciunt natus consequatur dolores eum necessitatibus deleniti
-        quis suscipit dolorem sed adipisci eligendi quaerat cupiditate,
-        doloribus doloremque iure ipsum soluta fugit repellat voluptatibus,
-        inventore ipsa! Natus consectetur dolorum at laboriosam magnam.
-        Consequatur quos laborum reiciendis repellendus debitis, ducimus iusto
-        doloribus aspernatur officiis nostrum delectus nesciunt.
+        <h2 class="about-subject" id="about-question-1">Who am I ?</h2>
+        <p class="content" id="about-answer-1">
+          I am Markus Sukram, a tattoo and make up artist, and a piercing
+          master.
+        </p>
+        <h2 class="about-subject" id="about-question-2">
+          Where do I come from ?
+        </h2>
+        <p class="content" id="about-answer-2">
+          I was born and grew up in Athens, Greece
+        </p>
+        <h2 class="about-subject" id="about-question-3">
+          What is the art of tattoos for me ?
+        </h2>
+        <p class="content" id="about-answer-3">
+          At a very young age I realized that I am a person of arts. Soon I knew
+          that drawing is my passion and I decided to follow this path. When I
+          got into the world of tattoos I fell in love with it and never stopped
+          giving the best of me to become better and better. I traveled a lot,
+          did countless researches, tattooed hundreds of oranges to gather all
+          the knowledge was necessary to make my dreams come true. This is my
+          whole life!
+        </p>
       </div>
       <div class="specs">
         <div class="sub-spec">
           <!-- ~~~~~~~~~~~~~~~~~~~~ Education ~~~~~~~~~~~~~~~~~~~~ -->
-          <div class="spec-heading">Education</div>
+          <h2 class="spec-heading">Education</h2>
           <div class="spec-container transition">
             <!-- ~~~~~~~~~~~~~~ Left ~~~~~~~~~~~~~~ -->
             <ul class="left-spec">
@@ -503,7 +524,7 @@
 
         <!-- ~~~~~~~~~~~~~~~~~~~~ Experience ~~~~~~~~~~~~~~~~~~~~ -->
         <div class="sub-spec">
-          <div class="spec-heading">Experience</div>
+          <h2 class="spec-heading">Experience</h2>
           <div class="spec-container transition">
             <!-- ~~~~~~~~~~~~~~ Left ~~~~~~~~~~~~~~ -->
             <ul class="left-spec">
@@ -601,8 +622,8 @@
       <div class="inspect" id="inspect"></div>
       <!-- Image Information -->
       <div class="prj-content">
-        <div class="prj-title" id="prj-title"></div>
-        <div class="prj-description" id="prj-description"></div>
+        <h1 class="prj-title" id="prj-title"></h1>
+        <p class="prj-description" id="prj-description"></p>
         <div class="prj-close" id="close">X</div>
       </div>
     </div>
@@ -756,127 +777,52 @@
         <!-- items -->
         <div class="item">
           <div class="merch-item-left">
-            <div class="presective">
-              <div class="box">
-                <div class="inner"></div>
-                <div class="front" id="front"></div>
-                <div class="back" id="back"></div>
-                <div class="left" id="left"></div>
-                <div class="right" id="right"></div>
-                <div class="top" id="top"></div>
-                <div class="bottom" id="bottom"></div>
-              </div>
-            </div>
+            <img
+              src="./Images/Merchandise/tattoo_book.png"
+              alt="Black book with Markus Sukram Logo and 'Tattoo Collection' as title, outside of its own container box"
+            />
           </div>
           <div class="merch-item-right">
-            <div class="title">This is a title</div>
-            <div class="content">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit in
-              omnis asperiores quo, quam excepturi vel ducimus, laborum commodi
-              maxime incidunt quos doloribus iusto. Atque quas molestiae
-              molestias officiis blanditiis aspernatur repellendus, quos in
-              culpa voluptate unde numquam hic porro!
-            </div>
+            <h1 class="title">Tattoo Collection</h1>
+            <p class="content">
+              If you are looking for inspiration so that you can choose the best
+              tattoo for you, then this book is definitely your guide. Here you
+              can find all the tattoos I have given life to and all those I have
+              thought of, colored & not, to help you find what fits on you the
+              most.
+            </p>
           </div>
         </div>
         <div class="item">
           <div class="merch-item-left">
-            <div class="presective">
-              <div class="box">
-                <div class="inner"></div>
-                <div class="front" id="front"></div>
-                <div class="back" id="back"></div>
-                <div class="left" id="left"></div>
-                <div class="right" id="right"></div>
-                <div class="top" id="top"></div>
-                <div class="bottom" id="bottom"></div>
-              </div>
+            <h1 class="title">Piercing</h1>
+            <div class="content">
+              If you are not ready to get yourself painted you can always
+              decorate your body with a beautiful piercing. You just have to
+              pick the body part and the jewelry and I will do the rest safely
+              and painless.
             </div>
           </div>
           <div class="merch-item-right">
-            <div class="title">This is a title</div>
-            <div class="content">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit in
-              omnis asperiores quo, quam excepturi vel ducimus, laborum commodi
-              maxime incidunt quos doloribus iusto. Atque quas molestiae
-              molestias officiis blanditiis aspernatur repellendus, quos in
-              culpa voluptate unde numquam hic porro!
-            </div>
+            <img
+              src="./Images/Merchandise/piercing.jpg"
+              alt="A picture, zoomed in to somebody's ear, ready to get a piercing"
+            />
           </div>
         </div>
         <div class="item">
           <div class="merch-item-left">
-            <div class="presective">
-              <div class="box">
-                <div class="inner"></div>
-                <div class="front" id="front"></div>
-                <div class="back" id="back"></div>
-                <div class="left" id="left"></div>
-                <div class="right" id="right"></div>
-                <div class="top" id="top"></div>
-                <div class="bottom" id="bottom"></div>
-              </div>
-            </div>
+            <img src="./Images/Merchandise/tShirt.png" alt="" />
           </div>
           <div class="merch-item-right">
-            <div class="title">This is a title</div>
-            <div class="content">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit in
-              omnis asperiores quo, quam excepturi vel ducimus, laborum commodi
-              maxime incidunt quos doloribus iusto. Atque quas molestiae
-              molestias officiis blanditiis aspernatur repellendus, quos in
-              culpa voluptate unde numquam hic porro!
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="merch-item-left">
-            <div class="presective">
-              <div class="box">
-                <div class="inner"></div>
-                <div class="front" id="front"></div>
-                <div class="back" id="back"></div>
-                <div class="left" id="left"></div>
-                <div class="right" id="right"></div>
-                <div class="top" id="top"></div>
-                <div class="bottom" id="bottom"></div>
-              </div>
-            </div>
-          </div>
-          <div class="merch-item-right">
-            <div class="title">This is a title</div>
-            <div class="content">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit in
-              omnis asperiores quo, quam excepturi vel ducimus, laborum commodi
-              maxime incidunt quos doloribus iusto. Atque quas molestiae
-              molestias officiis blanditiis aspernatur repellendus, quos in
-              culpa voluptate unde numquam hic porro!
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="merch-item-left">
-            <div class="presective">
-              <div class="box">
-                <div class="inner"></div>
-                <div class="front" id="front"></div>
-                <div class="back" id="back"></div>
-                <div class="left" id="left"></div>
-                <div class="right" id="right"></div>
-                <div class="top" id="top"></div>
-                <div class="bottom" id="bottom"></div>
-              </div>
-            </div>
-          </div>
-          <div class="merch-item-right">
-            <div class="title">This is a title</div>
-            <div class="content">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit in
-              omnis asperiores quo, quam excepturi vel ducimus, laborum commodi
-              maxime incidunt quos doloribus iusto. Atque quas molestiae
-              molestias officiis blanditiis aspernatur repellendus, quos in
-              culpa voluptate unde numquam hic porro!
-            </div>
+            <h1 class="title">Clothing & Accesories</h1>
+            <p class="content">
+              In case you are neither a tattoo nor a piercing type of person,
+              you can still see your favourite shape getting life. Bring me any
+              drawing, any picture any shape you want to carry on your clothes
+              or accesories and get it back alive the same day. You can always
+              chose one of the premade ones I provide.
+            </p>
           </div>
         </div>
         <!-- Last Item End -->
@@ -962,7 +908,7 @@
             </div>
           </div>
 
-          <!-- __________ Text Area - Message __________ -->
+          <!-- __________ Email __________ -->
           <div class="form-element">
             <label for="email">E-mail</label>
 
@@ -975,7 +921,19 @@
               class="input"
             />
           </div>
+          <!-- __________ Email comfirmation __________ -->
+          <div class="form-element">
+            <input
+              state="incorrect"
+              type="email"
+              name="emailConfirm"
+              placeholder="Confirm your email"
+              id="emailConfirm"
+              class="input"
+            />
+          </div>
 
+          <!-- __________ Text Area - Message __________ -->
           <textarea
             name="message"
             id="message"
