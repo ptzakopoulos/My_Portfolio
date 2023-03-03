@@ -3,7 +3,6 @@ import pagesModule from './Components/page-transition.js';
 import colorsModule from './Components/color-picker.js';
 import aboutModule from './Components/speciality.js';
 import carousel from './Components/carousel.js';
-// import countries from './Modules/phoneCodes.json' assert { type: 'json' };
 
 // ~~~~~~~~~~~~~~~~~~~~ Global Variables - Library ~~~~~~~~~~~~~~~~~~~~
 
