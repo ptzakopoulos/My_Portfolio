@@ -1,4 +1,4 @@
-### Project Description
+# Project Description
 This project is the portfolio of a potential Tattoo Artist based in Athens. It is part of the Final Assignment of SAE Athens, Front-end Development 2022.
 
 The project is live : http://tzakopoulosp.gr/
