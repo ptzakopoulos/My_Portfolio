@@ -10,7 +10,7 @@ The project is live : http://tzakopoulosp.gr/
 4. Custom Colors  - Another feature the website provides to the users is the custom theme color of the pages and elements
 
 ## /Developer
-At "Developer" folder, there is the "developer.html" file where you can find all the classes and id were used inside the website and the file/folder stracture of the project. For that I have used a local library that I have made for that purpose that get's into your html code and coppied all classes and Ids you have used so far, then it exports them as a JSON file and finally the Js file, responsible for the developer's field, get's the JSON file and creates the lists that are displayed in the page.
+At "Developer" folder, there is the "developer.html" file where you can find all the classes and id were used inside the website and the file/folder stracture of the project. For that I have used a local library that I have made for that purpose that get's into your html code and coppied all classes and Ids you have used so far, then it exports them as a JSON file and finally the Js file, responsible for the developer's field, fetches the JSON data and creates the lists that are displayed in the page.
 
 \The file stracture feature needs to be fixed\
 
